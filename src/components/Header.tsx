@@ -5,7 +5,7 @@ import "./Header.css"
 
 export default function Header() {
     return (
-        <Box sx={{ width: "inherit", height: "50px", display: "flex", justifyContent: 'space-between', backgroundColor: "info.main", padding: "5px" }}>
+        <Box sx={{ width: "100%", height: "50px", display: "flex", justifyContent: 'space-between', backgroundColor: "info.main", padding: "5px", marginBottom: "5px" }}>
             <Toolbar sx={{ color: "white", fontSize: "18pt" }}>
                 Flight Save
             </Toolbar>
