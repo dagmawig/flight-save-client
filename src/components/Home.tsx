@@ -15,6 +15,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { DateRangePicker, DateRange } from '@mui/x-date-pickers-pro/DateRangePicker';
+import { SearchResult } from "./FlightResult";
+import fData from './data.json'
 
 
 interface IProps {
@@ -124,55 +126,56 @@ export default function Home() {
     }
 
     return (
-        <Box sx={{ width: "90%", height: "500px", margin: "auto", display: "flex", justifyContent: 'center', flexDirection: "column", backgroundColor: "#e3f2fd", borderRadius: "5px", padding: "5px" }}>
-            <Toolbar sx={{ color: "#3f51b5", fontWeight: "bold", width: "100%", fontSize: "16pt" }}>
-                Search Flight
-            </Toolbar>
-            <FormControl sx={{ margin: "5px" }}>
-                <RadioGroup
-                    row
-                    aria-labelledby="radio-buttons-group-label"
-                    defaultValue="One-way"
-                    name="radio-buttons-group"
-                    sx={{ color: "gray" }}
-                    onChange={handleKind}
-                >
-                    <FormControlLabel value="One-way" control={<Radio />} label="One-way" />
-                    <FormControlLabel value="Round-trip" control={<Radio />} label="Round-trip" />
-                </RadioGroup>
-            </FormControl>
-            <FlightForm kind={fKind} />
-            <FormControl sx={{ m: 1, minWidth: 120, maxWidth: 200 }} size="small">
-                <InputLabel id="demo-select-small">Cabin</InputLabel>
-                <Select
-                    labelId="demo-select-small"
-                    id="demo-select-small"
-                    value={cabinClass}
-                    label="Class"
-                    onChange={handleClass}
-                >
-                    <MenuItem value={"Economy"}>Economy</MenuItem>
-                    <MenuItem value={"Premium Economy"}>Premium Economy</MenuItem>
-                    <MenuItem value={"Business"}>Business</MenuItem>
-                    <MenuItem value={"First"}>First</MenuItem>
-                </Select>
-            </FormControl >
-            <FormControl sx={{ m: 1, minWidth: 120, maxWidth:150 }} size="small">
-                <InputLabel id="demo-select-small">Stops</InputLabel>
-                <Select
-                    labelId="demo-select-small"
-                    id="demo-select-small"
-                    value={stops}
-                    label="Stops"
-                    onChange={handleStops}
-                >
-                    <MenuItem value={0}>Non stop</MenuItem>
-                    <MenuItem value={1}>Up to 1</MenuItem>
-                    <MenuItem value={2}>Up to 2</MenuItem>
-                    <MenuItem value={3}>Up to 3</MenuItem>
-                </Select>
-            </FormControl >
-            <Button variant="contained" color="primary" sx={{ height: "50px", alignSelf: "center", color: "white", width: "95%", margin: "6px" }}>Find Your Flight</Button>
-        </Box>
+        // <Box sx={{ width: "90%", height: "500px", margin: "auto", display: "flex", justifyContent: 'center', flexDirection: "column", backgroundColor: "#e3f2fd", borderRadius: "5px", padding: "5px" }}>
+        //     <Toolbar sx={{ color: "#3f51b5", fontWeight: "bold", width: "100%", fontSize: "16pt" }}>
+        //         Search Flight
+        //     </Toolbar>
+        //     <FormControl sx={{ margin: "5px" }}>
+        //         <RadioGroup
+        //             row
+        //             aria-labelledby="radio-buttons-group-label"
+        //             defaultValue="One-way"
+        //             name="radio-buttons-group"
+        //             sx={{ color: "gray" }}
+        //             onChange={handleKind}
+        //         >
+        //             <FormControlLabel value="One-way" control={<Radio />} label="One-way" />
+        //             <FormControlLabel value="Round-trip" control={<Radio />} label="Round-trip" />
+        //         </RadioGroup>
+        //     </FormControl>
+        //     <FlightForm kind={fKind} />
+        //     <FormControl sx={{ m: 1, minWidth: 120, maxWidth: 200 }} size="small">
+        //         <InputLabel id="demo-select-small">Cabin</InputLabel>
+        //         <Select
+        //             labelId="demo-select-small"
+        //             id="demo-select-small"
+        //             value={cabinClass}
+        //             label="Class"
+        //             onChange={handleClass}
+        //         >
+        //             <MenuItem value={"Economy"}>Economy</MenuItem>
+        //             <MenuItem value={"Premium Economy"}>Premium Economy</MenuItem>
+        //             <MenuItem value={"Business"}>Business</MenuItem>
+        //             <MenuItem value={"First"}>First</MenuItem>
+        //         </Select>
+        //     </FormControl >
+        //     <FormControl sx={{ m: 1, minWidth: 120, maxWidth:150 }} size="small">
+        //         <InputLabel id="demo-select-small">Stops</InputLabel>
+        //         <Select
+        //             labelId="demo-select-small"
+        //             id="demo-select-small"
+        //             value={stops}
+        //             label="Stops"
+        //             onChange={handleStops}
+        //         >
+        //             <MenuItem value={0}>Non stop</MenuItem>
+        //             <MenuItem value={1}>Up to 1</MenuItem>
+        //             <MenuItem value={2}>Up to 2</MenuItem>
+        //             <MenuItem value={3}>Up to 3</MenuItem>
+        //         </Select>
+        //     </FormControl >
+        //     <Button variant="contained" color="primary" sx={{ height: "50px", alignSelf: "center", color: "white", width: "95%", margin: "6px" }}>Find Your Flight</Button>
+        // </Box>
+        <SearchResult data={fData}/>
     )
 }
