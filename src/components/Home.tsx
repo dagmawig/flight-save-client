@@ -110,9 +110,13 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
 export default function Home() {
     const [value, setValue] = React.useState<Date | null>(new Date());
     const [cabinClass, setClass] = React.useState('Economy');
+    const [stops, setStops] = React.useState('0');
 
     const handleClass = (event: SelectChangeEvent) => {
         setClass(event.target.value);
+    };
+    const handleStops = (event: SelectChangeEvent) => {
+        setStops(event.target.value);
     };
     const [fKind, setFKind] = React.useState('One-way')
     const handleKind = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,7 +124,7 @@ export default function Home() {
     }
 
     return (
-        <Box sx={{ width: "90%", height: "450px", margin: "auto", display: "flex", justifyContent: 'center', flexDirection: "column", backgroundColor: "#e3f2fd", borderRadius: "5px", padding: "5px" }}>
+        <Box sx={{ width: "90%", height: "500px", margin: "auto", display: "flex", justifyContent: 'center', flexDirection: "column", backgroundColor: "#e3f2fd", borderRadius: "5px", padding: "5px" }}>
             <Toolbar sx={{ color: "#3f51b5", fontWeight: "bold", width: "100%", fontSize: "16pt" }}>
                 Search Flight
             </Toolbar>
@@ -153,10 +157,22 @@ export default function Home() {
                     <MenuItem value={"First"}>First</MenuItem>
                 </Select>
             </FormControl >
+            <FormControl sx={{ m: 1, minWidth: 120, maxWidth:150 }} size="small">
+                <InputLabel id="demo-select-small">Stops</InputLabel>
+                <Select
+                    labelId="demo-select-small"
+                    id="demo-select-small"
+                    value={stops}
+                    label="Stops"
+                    onChange={handleStops}
+                >
+                    <MenuItem value={0}>Non stop</MenuItem>
+                    <MenuItem value={1}>Up to 1</MenuItem>
+                    <MenuItem value={2}>Up to 2</MenuItem>
+                    <MenuItem value={3}>Up to 3</MenuItem>
+                </Select>
+            </FormControl >
             <Button variant="contained" color="primary" sx={{ height: "50px", alignSelf: "center", color: "white", width: "95%", margin: "6px" }}>Find Your Flight</Button>
         </Box>
     )
 }
-
-
-export { }
