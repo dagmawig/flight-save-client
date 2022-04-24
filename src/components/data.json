@@ -23,51 +23,51 @@
         "United Airlines"
     ],
     "totPrice": [
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
-        215.6,
         232.6,
-        408.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        232.6,
+        298.6,
+        338.61,
         598.6,
         1248.6,
         1248.6
     ],
     "flightInfo": {
         "sliceIDArr": [
-            1936246112,
-            921354459,
+            1794140159,
+            1063460412,
             1221873257,
             1837190584,
             548472202,
-            1141289948,
-            866558584,
+            1283395901,
+            724452631,
             644708406,
             1837062957,
             1837213741,
             1837187949,
-            639616260,
+            482952477,
             1251521567,
-            1571349720,
+            1713455673,
             1836978234,
             1641316573,
-            538335868,
-            1270395294,
-            288086830,
-            462071475,
-            2000857396
+            1874080681,
+            414513046,
+            232703439,
+            406667903,
+            1945453824
         ],
         "segmentIDArr": [
             [
@@ -104,7 +104,7 @@
                 1465205901
             ],
             [
-                439583287
+                795875352
             ],
             [
                 669339584
@@ -119,7 +119,7 @@
                 1065900356
             ],
             [
-                795875352
+                439583287
             ],
             [
                 1229267105
@@ -249,8 +249,8 @@
                 "2022-04-28T17:00:00"
             ],
             [
-                "2022-04-28T06:20:00",
-                "2022-04-28T09:49:00"
+                "2022-04-28T08:05:00",
+                "2022-04-28T11:34:00"
             ],
             [
                 "2022-04-28T18:00:00",
@@ -269,8 +269,8 @@
                 "2022-04-28T18:09:00"
             ],
             [
-                "2022-04-28T08:05:00",
-                "2022-04-28T11:34:00"
+                "2022-04-28T06:20:00",
+                "2022-04-28T09:49:00"
             ],
             [
                 "2022-04-28T18:30:00",
@@ -289,69 +289,260 @@
                 "2022-04-28T20:59:00"
             ]
         ],
-        "destAirArr": [
+        "airArr": [
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "Newark Liberty Intl Airport"
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "LaGuardia Airport"
+                [
+                    "Lambert Intl Airport",
+                    "LaGuardia Airport"
+                ]
             ],
             [
-                "Newark Liberty Intl Airport"
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ]
             ],
             [
-                "Newark Liberty Intl Airport"
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ]
             ],
             [
-                "Newark Liberty Intl Airport"
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ]
             ],
             [
-                "Newark Liberty Intl Airport"
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ]
             ],
             [
-                "Newark Liberty Intl Airport"
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ]
+            ]
+        ],
+        "airCodeArr": [
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "LGA"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ]
             ]
         ]
     }

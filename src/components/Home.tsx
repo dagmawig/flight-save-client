@@ -15,13 +15,15 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { DateRangePicker, DateRange } from '@mui/x-date-pickers-pro/DateRangePicker';
-import { SearchResult } from "./FlightResult";
+import { SearchResultItem } from "./FlightResult";
 import fData from './data.json'
 
 
 interface IProps {
     kind: string
 }
+
+console.log(fData);
 
 const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
     const [valueOne, setValueOne] = React.useState<Date | null>(new Date());
@@ -61,7 +63,7 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
                     onChange={(newValue) => {
                         setValueOne(newValue);
                     }}
-                    renderInput={(params) => <TextField {...params} sx={{ margin: "6px", width: 150}}
+                    renderInput={(params) => <TextField {...params} sx={{ margin: "6px", width: 150 }}
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position="start">
@@ -125,6 +127,27 @@ export default function Home() {
         setFKind(e.target.value)
     }
 
+    const searchResultBox = fData.totPrice.map((price, ind) => {
+        return (
+            <SearchResultItem data={
+                {
+                    itemNo: ind,
+                    airline: fData.airline[ind],
+                    totPrice: price,
+                    flightInfo: {
+                        sliceID: fData.flightInfo.sliceIDArr[ind],
+                        segmentID: fData.flightInfo.segmentIDArr[ind],
+                        totDuration: fData.flightInfo.totDurationArr[ind],
+                        overnight: fData.flightInfo.overnightArr[ind],
+                        cabinName: fData.flightInfo.cabinNameArr[ind],
+                        flightTime: fData.flightInfo.flightTimeArr[ind],
+                        air: fData.flightInfo.airArr[ind],
+                        airCode: fData.flightInfo.airCodeArr[ind]
+                    }
+                }
+            } />
+        )
+    })
     return (
         // <Box sx={{ width: "90%", height: "500px", margin: "auto", display: "flex", justifyContent: 'center', flexDirection: "column", backgroundColor: "#e3f2fd", borderRadius: "5px", padding: "5px" }}>
         //     <Toolbar sx={{ color: "#3f51b5", fontWeight: "bold", width: "100%", fontSize: "16pt" }}>
@@ -176,6 +199,30 @@ export default function Home() {
         //     </FormControl >
         //     <Button variant="contained" color="primary" sx={{ height: "50px", alignSelf: "center", color: "white", width: "95%", margin: "6px" }}>Find Your Flight</Button>
         // </Box>
-        <SearchResult data={fData}/>
+        // <SearchResultItem data={
+        //     {
+        //         airline: fData.airline[0],
+        //         totPrice: fData.totPrice[0],
+        //         flightInfo: {
+        //             sliceID: fData.flightInfo.sliceIDArr[0],
+        //             segmentID: fData.flightInfo.segmentIDArr[0],
+        //             totDuration: fData.flightInfo.totDurationArr[0],
+        //             overnight: fData.flightInfo.overnightArr[0],
+        //             cabinName: fData.flightInfo.cabinNameArr[0],
+        //             flightTime: [
+        //                 "2022-04-28T07:00:00",
+        //                 "2022-04-28T09:58:00",
+        //                 "2022-04-28T11:31:00",
+        //                 "2022-04-28T13:30:00"
+        //             ],//fData.flightInfo.flightTimeArr[0],
+        //             air: [["Lambert Air", "John F"], ["John F", "Laguardia"]],//fData.flightInfo.airArr[0],
+        //             airCode: [["STL", "NYC"], ["NYC", "LGA"]]//fData.flightInfo.airCodeArr[0]
+        //         }
+        //     }
+        // } />
+        <>
+         {searchResultBox}
+        </>
+       
     )
 }
