@@ -17,7 +17,8 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { DateRangePicker, DateRange } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { SearchResultItem } from "./FlightResult";
 import fData from './data.json'
-
+import { callbackify } from "util";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface IProps {
     kind: string
@@ -220,9 +221,15 @@ export default function Home() {
         //         }
         //     }
         // } />
-        <>
-         {searchResultBox}
-        </>
-       
+        <Box sx={{  width: "100%", my: 0, mx: "auto", padding: 0, margin:0, height: "calc(100vh-50px)", overflowY: "hidden"}}>
+            <Box sx={{  position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', padding: "5px", margin:0, backgroundColor: "rgba(255, 255, 255, 1)" }} >
+            <Button variant="contained" color="primary" ><ArrowBackIcon/></Button>
+                <Button variant="contained" color="success" sx={{mr: "5px"}} >Save Search</Button>
+            </Box>
+            <Box sx={{ maxHeight: "calc(100vh-80px)", overflowY: "scroll", marginTop: "30px"}}>
+                {searchResultBox}
+            </Box>
+            {/* <div style={{fontSize: '1000pt', margin: 0, padding: 0, }}>A</div> */}
+        </Box>
     )
 }
