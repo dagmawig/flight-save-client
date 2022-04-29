@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { AppBar, Toolbar, Box, Typography, Button, IconButton } from "@mui/material"
+import { AppBar, Toolbar, Box, Typography, Button, IconButton, Autocomplete } from "@mui/material"
 import FormControl from "@mui/material/FormControl"
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -15,9 +15,12 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import fData from './data.json'
-import { useAppDispatch, useAppSelector} from './hooks'
-import { setCabin, setStops, setDepCity, setArrCity, setDepDate } from './flightSlice'
+import fData from './data.json';
+import cityCode from './city.json';
+import { useAppDispatch, useAppSelector } from './hooks'
+import { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView } from './flightSlice'
+
+
 interface IProps {
     kind: string
 }
@@ -26,15 +29,15 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
     const dispatch = useAppDispatch();
     const [valueOne, setValueOne] = React.useState<Date | null>(new Date());
     const [value, setValue] = React.useState<DateRange<Date>>([new Date(), new Date()]);
-    const depCity = useAppSelector(state=>state.flight.searchInfo.departCity)
-    const handleDepCity = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
-        dispatch(setDepCity(event.target.value))
+    const depCity = useAppSelector(state => state.flight.searchInfo.departCity)
+    const handleDepCity = (event: React.SyntheticEvent<Element | Event>, value: string | null): void => {
+        if(value !==null) dispatch(setDepCity(value))
     }
-    const arrCity = useAppSelector(state=>state.flight.searchInfo.arrCity)
-    const handleArrCity = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        dispatch(setArrCity(event.target.value))
+    const arrCity = useAppSelector(state => state.flight.searchInfo.arrCity)
+    const handleArrCity = (event: React.SyntheticEvent<Element | Event>, value: string | null) => {
+        if(value !==null) dispatch(setArrCity(value))
     }
-    const depDate = useAppSelector(state=>state.flight.searchInfo.departDate)
+    const depDate = useAppSelector(state => state.flight.searchInfo.departDate)
     const handleDepDate = (date: string | null) => {
         dispatch(setDepDate(date))
         // const localDate = (date!==null)? new Date(date) : null
@@ -46,40 +49,64 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
     }
     return (
         <Box>
-            <TextField
-                id="depart-city"
-                label="Departing from?"
-                variant="outlined"
-                sx={{ margin: "6px" }}
-                value={depCity}
-                onChange={(e)=>handleDepCity(e)}
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <SearchIcon />
-                        </InputAdornment>
-                    ),
-                }} />
-            <TextField
+            <Autocomplete
+                id="departAuto"
+                freeSolo={false}
+                disableClearable
+                options={cityCode.map(option => option)}
+                onChange={handleDepCity}
+                renderInput={
+                    params => <TextField
+                        {...params}
+                        id="depart-city"
+                        label="Departing from?"
+                        variant="outlined"
+                        placeholder="city code"
+                        sx={{ margin: "6px", width: "250px" }}
+                        value={depCity}
+                        InputProps={{
+                            ...params.InputProps,
+                            type: 'search',
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ),
+                        }} />
+                } />
+
+            <Autocomplete
+            id="arrAuto"
+            freeSolo={false}
+            disableClearable
+            options={cityCode.map(option=>option)}
+            onChange={handleArrCity}
+            renderInput={
+                params => <TextField
+                {...params}
                 id="arrive-city"
                 label="Going to?"
                 variant="outlined"
-                sx={{ margin: "6px" }}
+                placeholder="city code"
+                sx={{ margin: "6px", width: "250px" }}
                 value={arrCity}
-                onChange={(e)=>handleArrCity(e)}
                 InputProps={{
+                    ...params.InputProps,
+                            type: 'search',
                     startAdornment: (
                         <InputAdornment position="start">
                             <SearchIcon />
                         </InputAdornment>
                     ),
                 }} />
+            } />
+            
             {(kind === "One-way") ? <LocalizationProvider dateAdapter={AdapterDateFns} >
                 <DatePicker
                     disablePast
                     label="Departing"
                     value={depDate}
-                    onChange={(date) =>handleDepDate(date)}
+                    onChange={(date) => handleDepDate(date)}
                     renderInput={(params) => <TextField  {...params} sx={{ margin: "6px", width: 150 }}
                         InputProps={{
                             startAdornment: (
@@ -132,14 +159,19 @@ const SearchBox = () => {
     const dispatch = useAppDispatch();
 
     const [value, setValue] = React.useState<Date | null>(new Date());
-    const cabinClass = useAppSelector((state=> state.flight.searchInfo.cabinClass))
-    const stops = useAppSelector(state=>state.flight.searchInfo.stops)
+    const cabinClass = useAppSelector((state => state.flight.searchInfo.cabinClass))
+    const stops = useAppSelector(state => state.flight.searchInfo.stops)
     const handleClass = (event: SelectChangeEvent) => {
         dispatch(setCabin(event.target.value))
     };
     const handleStops = (event: SelectChangeEvent) => {
         dispatch(setStops(event.target.value));
     };
+
+    const handleSearch = () => {
+
+        dispatch(changeView(true));
+    }
 
     return (
         <Box sx={{ width: "90%", height: "500px", margin: "auto", display: "flex", justifyContent: 'center', flexDirection: "column", backgroundColor: "#e3f2fd", borderRadius: "5px", padding: "5px" }}>
@@ -175,7 +207,7 @@ const SearchBox = () => {
                     <MenuItem value={"FST"}>First</MenuItem>
                 </Select>
             </FormControl >
-            <FormControl sx={{ m: 1, minWidth: 120, maxWidth:150 }} size="small">
+            <FormControl sx={{ m: 1, minWidth: 120, maxWidth: 150 }} size="small">
                 <InputLabel id="demo-select-small">Stops</InputLabel>
                 <Select
                     labelId="demo-select-small"
@@ -190,7 +222,7 @@ const SearchBox = () => {
                     <MenuItem value={3}>Up to 3</MenuItem>
                 </Select>
             </FormControl >
-            <Button variant="contained" color="primary" sx={{ height: "50px", alignSelf: "center", color: "white", width: "95%", margin: "6px" }}>Find Your Flight</Button>
+            <Button variant="contained" color="primary" sx={{ height: "50px", alignSelf: "center", color: "white", width: "95%", margin: "6px" }} onClick={handleSearch}>Find Your Flight</Button>
         </Box>
     )
 }

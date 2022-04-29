@@ -5,6 +5,10 @@ import Typography from '@mui/material/Typography';
 import { Box, CardMedia } from "@mui/material";
 import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
+import fData from './data.json'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useAppDispatch, useAppSelector} from './hooks'
+import { changeView } from "./flightSlice";
 
 interface IProps {
     data: {
@@ -153,3 +157,46 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
 }
 
 
+const searchResultList = fData.totPrice.map((price, ind) => {
+    return (
+        <SearchResultItem data={
+            {
+                itemNo: ind,
+                airline: fData.airline[ind],
+                totPrice: price,
+                flightInfo: {
+                    sliceID: fData.flightInfo.sliceIDArr[ind],
+                    segmentID: fData.flightInfo.segmentIDArr[ind],
+                    totDuration: fData.flightInfo.totDurationArr[ind],
+                    overnight: fData.flightInfo.overnightArr[ind],
+                    cabinName: fData.flightInfo.cabinNameArr[ind],
+                    flightTime: fData.flightInfo.flightTimeArr[ind],
+                    air: fData.flightInfo.airArr[ind],
+                    airCode: fData.flightInfo.airCodeArr[ind]
+                }
+            }
+        } />
+    )
+})
+
+const SearchResultBox = () => {
+    const dispatch = useAppDispatch();
+
+    const handleBack = () => {
+        dispatch(changeView(false));
+    }
+    
+    return (
+        <Box sx={{  width: "100%", my: 0, mx: "auto", padding: 0, margin:0, height: "calc(100vh-50px)", overflowY: "hidden"}}>
+            <Box sx={{  position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', padding: "5px", margin:0, backgroundColor: "rgba(255, 255, 255, 1)" }} >
+            <Button variant="contained" color="primary" onClick={handleBack}><ArrowBackIcon/></Button>
+                <Button variant="contained" color="success" sx={{mr: "5px"}} >Save Search</Button>
+            </Box>
+            <Box sx={{ maxHeight: "calc(100vh-80px)", overflowY: "scroll", marginTop: "30px"}}>
+                {searchResultList}
+            </Box>
+        </Box>
+    )
+}
+
+export default SearchResultBox;

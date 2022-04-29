@@ -15,11 +15,10 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { DateRangePicker, DateRange } from '@mui/x-date-pickers-pro/DateRangePicker';
-import { SearchResultItem } from "./FlightResult";
 import fData from './data.json'
-import { callbackify } from "util";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SearchBox from "./SearchBox";
+import SearchResultBox from "./FlightResult"
+import { useAppDispatch, useAppSelector} from './hooks'
 
 interface IProps {
     kind: string
@@ -129,30 +128,12 @@ export default function Home() {
         setFKind(e.target.value)
     }
 
-    const searchResultBox = fData.totPrice.map((price, ind) => {
-        return (
-            <SearchResultItem data={
-                {
-                    itemNo: ind,
-                    airline: fData.airline[ind],
-                    totPrice: price,
-                    flightInfo: {
-                        sliceID: fData.flightInfo.sliceIDArr[ind],
-                        segmentID: fData.flightInfo.segmentIDArr[ind],
-                        totDuration: fData.flightInfo.totDurationArr[ind],
-                        overnight: fData.flightInfo.overnightArr[ind],
-                        cabinName: fData.flightInfo.cabinNameArr[ind],
-                        flightTime: fData.flightInfo.flightTimeArr[ind],
-                        air: fData.flightInfo.airArr[ind],
-                        airCode: fData.flightInfo.airCodeArr[ind]
-                    }
-                }
-            } />
-        )
-    })
+    const resultView = useAppSelector(state=>state.flight.resultView)
+
     return (
-      
-        <SearchBox/>
+           (!resultView)?<SearchBox /> :
+            <SearchResultBox />
+ 
 
         // <Box sx={{  width: "100%", my: 0, mx: "auto", padding: 0, margin:0, height: "calc(100vh-50px)", overflowY: "hidden"}}>
         //     <Box sx={{  position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', padding: "5px", margin:0, backgroundColor: "rgba(255, 255, 255, 1)" }} >

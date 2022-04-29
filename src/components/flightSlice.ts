@@ -8,7 +8,8 @@ interface UserData {
         departDate: string | null,
         cabinClass: string,
         stops: string,
-    }
+    },
+    resultView: boolean
 }
 
 interface CabinClass {
@@ -22,7 +23,8 @@ const initialState: UserData = {
         departDate: new Date().toISOString(),
         cabinClass: 'ECO',
         stops: '0'
-    }
+    },
+    resultView: false
 }
 
 export const flightSlice = createSlice({
@@ -43,12 +45,15 @@ export const flightSlice = createSlice({
         },
         setDepDate: (state, action: PayloadAction<string | null>) => {
             state.searchInfo.departDate = action.payload
+        },
+        changeView: (state, action: PayloadAction<boolean>) => {
+            state.resultView = action.payload
         }
     }
 })
 
 
-export const { setCabin, setStops, setDepCity, setArrCity, setDepDate } = flightSlice.actions
+export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView } = flightSlice.actions
 
 export default flightSlice.reducer
 
