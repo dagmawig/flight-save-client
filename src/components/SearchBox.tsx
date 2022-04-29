@@ -18,7 +18,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import fData from './data.json';
 import cityCode from './city.json';
 import { useAppDispatch, useAppSelector } from './hooks'
-import { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView } from './flightSlice'
+import { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading } from './flightSlice'
 
 
 interface IProps {
@@ -169,8 +169,12 @@ const SearchBox = () => {
     };
 
     const handleSearch = () => {
-
-        dispatch(changeView(true));
+        dispatch(changeLoading(true))
+        setTimeout(()=> {
+            dispatch(changeLoading(false));
+            dispatch(changeView(true));
+        }, 5000)
+        
     }
 
     return (
