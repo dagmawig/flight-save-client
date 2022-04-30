@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
- 
+
 interface UserData {
     searchInfo: {
         departCity: string,
@@ -8,6 +8,22 @@ interface UserData {
         departDate: string | null,
         cabinClass: string,
         stops: string,
+    },
+    searchResult: {
+        dep:{
+            totPrice: number[],
+            airline: string[],
+            flightInfo: {
+                sliceIDArr: number[],
+                segmentIDArr: number[][],
+                totDurationArr: number[],
+                overnightArr: boolean[],
+                cabinNameArr: string[],
+                flightTimeArr: string[][],
+                airArr: string[][][],
+                airCodeArr: string[][][]
+            }
+        }
     },
     resultView: boolean,
     loading: boolean
@@ -24,6 +40,22 @@ const initialState: UserData = {
         departDate: new Date().toISOString(),
         cabinClass: 'ECO',
         stops: '0'
+    },
+    searchResult: {
+        dep:{
+            totPrice: [],
+            airline: [],
+            flightInfo: {
+                sliceIDArr: [],
+                segmentIDArr: [],
+                totDurationArr: [],
+                overnightArr: [],
+                cabinNameArr: [],
+                flightTimeArr: [],
+                airArr: [],
+                airCodeArr: []
+            }
+        }
     },
     resultView: false,
     loading: false
@@ -53,12 +85,15 @@ export const flightSlice = createSlice({
         },
         changeLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload
+        },
+        changeResult: (state, action: PayloadAction<any>) => {
+            state.searchResult = action.payload
         }
     }
 })
 
 
-export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading } = flightSlice.actions
+export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult } = flightSlice.actions
 
 export default flightSlice.reducer
 

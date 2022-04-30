@@ -18,11 +18,23 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import fData from './data.json';
 import cityCode from './city.json';
 import { useAppDispatch, useAppSelector } from './hooks'
-import { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading } from './flightSlice'
-
+import { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult } from './flightSlice'
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { json } from "stream/consumers";
 
 interface IProps {
     kind: string
+}
+
+interface searchFilter {
+    type: string,
+    dep: {
+        date_departure: string | null,
+        location_departure: string,
+        location_arrival: string,
+        number_of_stops: string,
+        classType: string
+    }
 }
 
 const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
@@ -31,15 +43,21 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
     const [value, setValue] = React.useState<DateRange<Date>>([new Date(), new Date()]);
     const depCity = useAppSelector(state => state.flight.searchInfo.departCity)
     const handleDepCity = (event: React.SyntheticEvent<Element | Event>, value: string | null): void => {
-        if(value !==null) dispatch(setDepCity(value))
+        if (value !== null) dispatch(setDepCity(value))
     }
     const arrCity = useAppSelector(state => state.flight.searchInfo.arrCity)
     const handleArrCity = (event: React.SyntheticEvent<Element | Event>, value: string | null) => {
-        if(value !==null) dispatch(setArrCity(value))
+        if (value !== null) dispatch(setArrCity(value))
     }
     const depDate = useAppSelector(state => state.flight.searchInfo.departDate)
     const handleDepDate = (date: string | null) => {
-        dispatch(setDepDate(date))
+        if (date !== null) {
+            const isoDate = new Date(date).toISOString()
+            console.log(new Date(date).toISOString())
+            dispatch(setDepDate(isoDate))
+        }
+
+
         // const localDate = (date!==null)? new Date(date) : null
         // if(localDate===null)  dispatch(setDepDate(localDate))
         // else {
@@ -76,31 +94,31 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
                 } />
 
             <Autocomplete
-            id="arrAuto"
-            freeSolo={false}
-            disableClearable
-            options={cityCode.map(option=>option)}
-            onChange={handleArrCity}
-            renderInput={
-                params => <TextField
-                {...params}
-                id="arrive-city"
-                label="Going to?"
-                variant="outlined"
-                placeholder="city code"
-                sx={{ margin: "6px", width: "250px" }}
-                value={arrCity}
-                InputProps={{
-                    ...params.InputProps,
+                id="arrAuto"
+                freeSolo={false}
+                disableClearable
+                options={cityCode.map(option => option)}
+                onChange={handleArrCity}
+                renderInput={
+                    params => <TextField
+                        {...params}
+                        id="arrive-city"
+                        label="Going to?"
+                        variant="outlined"
+                        placeholder="city code"
+                        sx={{ margin: "6px", width: "250px" }}
+                        value={arrCity}
+                        InputProps={{
+                            ...params.InputProps,
                             type: 'search',
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <SearchIcon />
-                        </InputAdornment>
-                    ),
-                }} />
-            } />
-            
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ),
+                        }} />
+                } />
+
             {(kind === "One-way") ? <LocalizationProvider dateAdapter={AdapterDateFns} >
                 <DatePicker
                     disablePast
@@ -167,14 +185,55 @@ const SearchBox = () => {
     const handleStops = (event: SelectChangeEvent) => {
         dispatch(setStops(event.target.value));
     };
+    const searchInfo = useAppSelector(state => state.flight.searchInfo);
 
     const handleSearch = () => {
-        dispatch(changeLoading(true))
-        setTimeout(()=> {
-            dispatch(changeLoading(false));
-            dispatch(changeView(true));
-        }, 5000)
-        
+
+        if (searchInfo.departCity !== "" && searchInfo.arrCity !== "", searchInfo.departDate !== null) {
+            const localDate = new Date(searchInfo.departDate);
+            const dateString = `${localDate.getFullYear()}-${Math.floor((localDate.getMonth() + 1) / 10)}${(localDate.getMonth() + 1) % 10}-${Math.floor(localDate.getDate() / 10)}${localDate.getDate() % 10}`;
+
+            const data = {
+                searchFilter: {
+                    type: "ONE_WAY",
+                    dep: {
+                        date_departure: dateString,
+                        location_departure: searchInfo.departCity,
+                        location_arrival: searchInfo.arrCity,
+                        number_of_stops: searchInfo.stops,
+                        classType: searchInfo.cabinClass
+                    }
+                }
+            }
+
+            const searchFlight = async (): Promise<void | AxiosResponse<any, any>> => {
+                let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/search/", { ...data }).catch(err => {
+                    console.log("errrrr", err);
+                    dispatch(changeLoading(false));
+                    alert("no flight on this date!")
+            })
+                return resp;
+            }
+
+            dispatch(changeLoading(true));
+            searchFlight().then(res => {
+                if (res) {
+                    console.log("search data", res.data);
+                    if(res.data.success) {
+                        dispatch(changeResult(res.data.data))
+                        dispatch(changeView(true));
+                        dispatch(changeLoading(false));
+                    }
+                    else {
+                        dispatch(changeLoading(false));
+                        alert("no flight found!")
+                    }    
+                }
+
+            })
+
+        }
+
     }
 
     return (

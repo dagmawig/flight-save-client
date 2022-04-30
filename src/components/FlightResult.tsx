@@ -7,7 +7,7 @@ import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
 import fData from './data.json'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useAppDispatch, useAppSelector} from './hooks'
+import { useAppDispatch, useAppSelector } from './hooks'
 import { changeView } from "./flightSlice";
 
 interface IProps {
@@ -52,25 +52,25 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
 
     const layover = () => {
         return data.flightInfo.airCode.map((airport, ind) => {
-            if(ind===0) return null;
-            const t2 = new Date(data.flightInfo.flightTime[2*ind]).getTime()/1000;
-            const t1 = new Date(data.flightInfo.flightTime[(2*ind)-1]).getTime()/1000;
-            const timeDiff  = Math.floor((t2-t1)/60);
-            const h = Math.floor(timeDiff/60);
-            const min = timeDiff%60;
-            return (<div key={"lay"+ind}>
-                <Button key={"popB"+ind} size="small" sx={{ backgroundColor: "#b3e5fc", textTransform: "none", minHeight: 0, minWidth: 0, padding: .25 }} aria-describedby={id} variant="contained" onClick={handleClick}>
+            if (ind === 0) return null;
+            const t2 = new Date(data.flightInfo.flightTime[2 * ind]).getTime() / 1000;
+            const t1 = new Date(data.flightInfo.flightTime[(2 * ind) - 1]).getTime() / 1000;
+            const timeDiff = Math.floor((t2 - t1) / 60);
+            const h = Math.floor(timeDiff / 60);
+            const min = timeDiff % 60;
+            return (<div key={"lay" + ind}>
+                <Button key={"popB" + ind} size="small" sx={{ backgroundColor: "#b3e5fc", textTransform: "none", minHeight: 0, minWidth: 0, padding: .25 }} aria-describedby={id} variant="contained" onClick={handleClick}>
                     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                         <Typography sx={{ fontSize: 10, marginBottom: 0 }} color="text.primary" gutterBottom>
                             {airport[0]}
                         </Typography>
                         <Typography sx={{ fontSize: 10 }} color="text.primary" gutterBottom>
-                            {`${(h!==0)? `${h}h `: ''}${(min!==0)? `${min}m`: ''}`}
+                            {`${(h !== 0) ? `${h}h ` : ''}${(min !== 0) ? `${min}m` : ''}`}
                         </Typography>
                     </Box>
                 </Button>
                 <Popover
-                key={"pop"+ind}
+                    key={"pop" + ind}
                     disableScrollLock={true}
                     id={id}
                     open={open}
@@ -81,7 +81,7 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
                         horizontal: 'left',
                     }}
                 >
-                    <Typography sx={{ p: 1, fontSize: 12 }}> {`${(h!==0)? `${h}h `: ''}${(min!==0)? `${min}m`: ''}`} layover <br /> @ {data.flightInfo.air[ind][0]}</Typography>
+                    <Typography sx={{ p: 1, fontSize: 12 }}> {`${(h !== 0) ? `${h}h ` : ''}${(min !== 0) ? `${min}m` : ''}`} layover <br /> @ {data.flightInfo.air[ind][0]}</Typography>
                 </Popover>
             </div>)
         })
@@ -109,7 +109,7 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
 
     return (
         <Card elevation={5} sx={{ width: "99%", margin: "auto", mx: "3px", my: "5px" }}>
-            <CardContent sx={{ display: "flex", flexDirection: "column", backgroundColor: (data.itemNo%2===0)? "#e0e0e0": ''}}>
+            <CardContent sx={{ display: "flex", flexDirection: "column", backgroundColor: (data.itemNo % 2 === 0) ? "#e0e0e0" : '' }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                     <Typography sx={{ fontSize: 12 }} color="text.primary" gutterBottom>
                         <b>{(data.flightInfo.segmentID.length === 1) ? "Nonstop" : `${data.flightInfo.segmentID.length - 1} stop${(data.flightInfo.segmentID.length - 1 > 1) ? 's' : ''}`}</b> {totTime}
@@ -157,27 +157,6 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
 }
 
 
-const searchResultList = fData.totPrice.map((price, ind) => {
-    return (
-        <SearchResultItem data={
-            {
-                itemNo: ind,
-                airline: fData.airline[ind],
-                totPrice: price,
-                flightInfo: {
-                    sliceID: fData.flightInfo.sliceIDArr[ind],
-                    segmentID: fData.flightInfo.segmentIDArr[ind],
-                    totDuration: fData.flightInfo.totDurationArr[ind],
-                    overnight: fData.flightInfo.overnightArr[ind],
-                    cabinName: fData.flightInfo.cabinNameArr[ind],
-                    flightTime: fData.flightInfo.flightTimeArr[ind],
-                    air: fData.flightInfo.airArr[ind],
-                    airCode: fData.flightInfo.airCodeArr[ind]
-                }
-            }
-        } />
-    )
-})
 
 const SearchResultBox = () => {
     const dispatch = useAppDispatch();
@@ -185,15 +164,39 @@ const SearchResultBox = () => {
     const handleBack = () => {
         dispatch(changeView(false));
     }
-    
+
+    const searchResult = useAppSelector(state => state.flight.searchResult);
+    const result = (searchResult !== null) ? searchResult.dep : fData;
+    const SearchResultList = result.totPrice.map((price, ind) => {
+        return (
+            <SearchResultItem key={'result' + ind} data={
+                {
+                    itemNo: ind,
+                    airline: result.airline[ind],
+                    totPrice: price,
+                    flightInfo: {
+                        sliceID: result.flightInfo.sliceIDArr[ind],
+                        segmentID: result.flightInfo.segmentIDArr[ind],
+                        totDuration: result.flightInfo.totDurationArr[ind],
+                        overnight: result.flightInfo.overnightArr[ind],
+                        cabinName: result.flightInfo.cabinNameArr[ind],
+                        flightTime: result.flightInfo.flightTimeArr[ind],
+                        air: result.flightInfo.airArr[ind],
+                        airCode: result.flightInfo.airCodeArr[ind]
+                    }
+                }
+            } />
+        )
+    })
+
     return (
-        <Box sx={{  width: "100%", my: 0, mx: "auto", padding: 0, margin:0, height: "calc(100vh-50px)", overflowY: "hidden"}}>
-            <Box sx={{  position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', padding: "5px", margin:0, backgroundColor: "rgba(255, 255, 255, 1)" }} >
-            <Button variant="contained" color="primary" onClick={handleBack}><ArrowBackIcon/></Button>
-                <Button variant="contained" color="success" sx={{mr: "5px"}} >Save Search</Button>
+        <Box sx={{ width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "calc(100vh-50px)", overflowY: "hidden" }}>
+            <Box sx={{ position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', padding: "5px", margin: 0, backgroundColor: "rgba(255, 255, 255, 1)" }} >
+                <Button variant="contained" color="primary" onClick={handleBack}><ArrowBackIcon /></Button>
+                <Button variant="contained" color="success" sx={{ mr: "5px" }} >Save Search</Button>
             </Box>
-            <Box sx={{ maxHeight: "calc(100vh-80px)", overflowY: "scroll", marginTop: "30px"}}>
-                {searchResultList}
+            <Box sx={{ maxHeight: "calc(100vh-80px)", overflowY: "scroll", marginTop: "30px" }}>
+                {SearchResultList}
             </Box>
         </Box>
     )
