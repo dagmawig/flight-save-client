@@ -10,6 +10,7 @@ interface UserData {
         stops: string,
     },
     searchResult: {
+        populated: boolean,
         dep:{
             totPrice: number[],
             airline: string[],
@@ -42,6 +43,7 @@ const initialState: UserData = {
         stops: '0'
     },
     searchResult: {
+        populated: false,
         dep:{
             totPrice: [],
             airline: [],

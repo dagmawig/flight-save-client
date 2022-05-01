@@ -220,6 +220,7 @@ const SearchBox = () => {
                 if (res) {
                     console.log("search data", res.data);
                     if(res.data.success) {
+                        res.data.data.populated = true;
                         dispatch(changeResult(res.data.data))
                         dispatch(changeView(true));
                         dispatch(changeLoading(false));

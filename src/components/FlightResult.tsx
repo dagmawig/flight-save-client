@@ -31,13 +31,31 @@ interface IProps {
 export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
 
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
+    const [anchorEl1, setAnchorEl1] = React.useState<HTMLButtonElement | null>(null);
+    const [anchorEl2, setAnchorEl2] = React.useState<HTMLButtonElement | null>(null);
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => { 
         setAnchorEl(event.currentTarget);
     };
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleClick1 = (event: React.MouseEvent<HTMLButtonElement>) => { 
+        setAnchorEl1(event.currentTarget);
+    };
+
+    const handleClose1 = () => {
+        setAnchorEl1(null);
+    };
+
+    const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => { 
+        setAnchorEl2(event.currentTarget);
+    };
+
+    const handleClose2 = () => {
+        setAnchorEl2(null);
     };
 
     const getTime = (dateString: string) => {
@@ -59,7 +77,7 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
             const h = Math.floor(timeDiff / 60);
             const min = timeDiff % 60;
             return (<div key={"lay" + ind}>
-                <Button key={"popB" + ind} size="small" sx={{ backgroundColor: "#b3e5fc", textTransform: "none", minHeight: 0, minWidth: 0, padding: .25 }} aria-describedby={id} variant="contained" onClick={handleClick}>
+                <Button key={"popB" + ind} size="small" sx={{ backgroundColor: "#b3e5fc", textTransform: "none", minHeight: 0, minWidth: 0, padding: .25 }} aria-describedby={id} variant="contained" onClick={ind===0? handleClick : (ind===1? handleClick1 : handleClick2)}>
                     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                         <Typography sx={{ fontSize: 10, marginBottom: 0 }} color="text.primary" gutterBottom>
                             {airport[0]}
@@ -72,10 +90,10 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
                 <Popover
                     key={"pop" + ind}
                     disableScrollLock={true}
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
+                    id={ind===0? id : (ind===1? id1 : id2)}
+                    open={ind===0? open : (ind===1? open1 : open2)}
+                    anchorEl={(ind===0)? anchorEl : (ind===1? anchorEl1 : anchorEl2)}
+                    onClose={ind===0? handleClose : (ind===1? handleClose1 : handleClose2)}
                     anchorOrigin={{
                         vertical: 'bottom',
                         horizontal: 'left',
@@ -88,7 +106,11 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
     }
 
     const open = Boolean(anchorEl);
+    const open1 = Boolean(anchorEl1);
+    const open2 = Boolean(anchorEl2);
     const id = open ? 'simple-popover' : undefined;
+    const id1 = open1 ? 'simple-popover' : undefined;
+    const id2 = open2 ? 'simple-popover' : undefined;
     const totTime = `${(Math.floor(data.flightInfo.totDuration / 60) > 0) ? Math.floor(data.flightInfo.totDuration / 60).toString() + 'h ' : ''}${(Math.floor(data.flightInfo.totDuration % 60) > 0) ? Math.floor(data.flightInfo.totDuration % 60).toString() + 'm' : ''}`;
 
     const depTime = () => {
@@ -166,7 +188,7 @@ const SearchResultBox = () => {
     }
 
     const searchResult = useAppSelector(state => state.flight.searchResult);
-    const result = (searchResult !== null) ? searchResult.dep : fData;
+    const result = (searchResult.populated) ? searchResult.dep : fData;
     const SearchResultList = result.totPrice.map((price, ind) => {
         return (
             <SearchResultItem key={'result' + ind} data={

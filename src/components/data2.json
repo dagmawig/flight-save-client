@@ -1,0 +1,1871 @@
+{
+    "airline": [
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "Ethiopian",
+        "Ethiopian",
+        "Ethiopian",
+        "United Airlines",
+        "United Airlines",
+        "Austrian Airlines",
+        "Lufthansa",
+        "Lufthansa",
+        "Lufthansa",
+        "Lufthansa",
+        "Qatar Airways",
+        "American Airlines",
+        "Qatar Airways",
+        "Qatar Airways",
+        "Qatar Airways",
+        "Qatar Airways",
+        "Qatar Airways",
+        "Qatar Airways",
+        "Austrian Airlines",
+        "Qatar Airways",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines",
+        "United Airlines"
+    ],
+    "totPrice": [
+        800.4,
+        800.4,
+        818.3,
+        943.3,
+        962.2,
+        1083.4,
+        1083.4,
+        1086.92,
+        1086.92,
+        1120.2,
+        1143.92,
+        1143.92,
+        1143.92,
+        1244.92,
+        1244.92,
+        1329.4,
+        1347.3,
+        1347.3,
+        1347.3,
+        1347.3,
+        1355.5,
+        1390.5,
+        1483.5,
+        1497.5,
+        1508.5,
+        1510.27,
+        1624.5,
+        1635.5,
+        1704.4,
+        1778.5,
+        2004.3,
+        2009.9,
+        2032.86,
+        2038.3,
+        2038.3,
+        2038.3,
+        2038.3,
+        2038.3,
+        2038.46,
+        2038.46
+    ],
+    "flightInfo": {
+        "sliceIDArr": [
+            468236852,
+            1891070157,
+            311313098,
+            958410409,
+            1595009248,
+            1686654742,
+            763487636,
+            2026138732,
+            1727257915,
+            772097714,
+            787360108,
+            955450227,
+            903727238,
+            2118674363,
+            1731407733,
+            26392382,
+            705581618,
+            1636520186,
+            998201780,
+            239000665,
+            652269731,
+            1257897063,
+            983048669,
+            2106078079,
+            1139832313,
+            855604126,
+            1942634172,
+            1900071028,
+            1648613734,
+            1508811943,
+            420656250,
+            1737673792,
+            2012277595,
+            1386236090,
+            793391378,
+            319902567,
+            2069189033,
+            1777415155,
+            787608623,
+            74214774
+        ],
+        "segmentIDArr": [
+            [
+                751647971,
+                1878732535,
+                1822949153
+            ],
+            [
+                755903838,
+                1878732535,
+                1822949153
+            ],
+            [
+                751647971,
+                2050328801,
+                318164714
+            ],
+            [
+                751647971,
+                1031088206,
+                318164714
+            ],
+            [
+                1144775580,
+                1959470855,
+                1718969560
+            ],
+            [
+                1144775580,
+                386162719,
+                1822949153
+            ],
+            [
+                670861319,
+                386162719,
+                1822949153
+            ],
+            [
+                1144775580,
+                1838266243,
+                390663641
+            ],
+            [
+                1144775580,
+                1296550154,
+                390663641
+            ],
+            [
+                1144775580,
+                1224585022,
+                1718969560
+            ],
+            [
+                755903838,
+                957166712
+            ],
+            [
+                751647971,
+                957166712
+            ],
+            [
+                1425077628,
+                1730580172
+            ],
+            [
+                1981225485,
+                146956575,
+                390663641
+            ],
+            [
+                1144775580,
+                2025452142,
+                390663641
+            ],
+            [
+                1001561319,
+                386162719,
+                1822949153
+            ],
+            [
+                1588983596,
+                1031088206,
+                318164714
+            ],
+            [
+                1588983596,
+                2050328801,
+                318164714
+            ],
+            [
+                991295897,
+                553918862,
+                318164714
+            ],
+            [
+                1588983596,
+                535091454,
+                318164714
+            ],
+            [
+                1427635754,
+                1364556241,
+                1915802853
+            ],
+            [
+                798541301,
+                1032416221,
+                1915802853
+            ],
+            [
+                631922571,
+                1364556241,
+                1915802853
+            ],
+            [
+                1834003390,
+                1361695422,
+                1915802853
+            ],
+            [
+                26567672,
+                1361695422,
+                1915802853
+            ],
+            [
+                1981147120,
+                1361695422,
+                1915802853
+            ],
+            [
+                798541301,
+                1361695422,
+                1915802853
+            ],
+            [
+                293228397,
+                1361695422,
+                1915802853
+            ],
+            [
+                229394659,
+                1878732535,
+                1822949153
+            ],
+            [
+                668959215,
+                2080839047,
+                1915802853
+            ],
+            [
+                846615556,
+                1716241486,
+                1301204557
+            ],
+            [
+                846615556,
+                1614677384,
+                1301204557
+            ],
+            [
+                1425077628,
+                802259515,
+                1301204557
+            ],
+            [
+                1144775580,
+                1296550154,
+                1654327572
+            ],
+            [
+                751647971,
+                1555406786,
+                1654327572
+            ],
+            [
+                1425077628,
+                1296550154,
+                1654327572
+            ],
+            [
+                1898510214,
+                1296550154,
+                1654327572
+            ],
+            [
+                1144775580,
+                1838266243,
+                1654327572
+            ],
+            [
+                1425077628,
+                1223212953,
+                1301204557
+            ],
+            [
+                1425077628,
+                621139360,
+                1301204557
+            ]
+        ],
+        "totDurationArr": [
+            2294,
+            2355,
+            2304,
+            2304,
+            2166,
+            2106,
+            2260,
+            2116,
+            2116,
+            2166,
+            1830,
+            1769,
+            1080,
+            1640,
+            2116,
+            2260,
+            2048,
+            2048,
+            1640,
+            2048,
+            2014,
+            1745,
+            1505,
+            1952,
+            1952,
+            2025,
+            1745,
+            1745,
+            2038,
+            1473,
+            2000,
+            2000,
+            2460,
+            2116,
+            2304,
+            2395,
+            1812,
+            2116,
+            2460,
+            2460
+        ],
+        "overnightArr": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true
+        ],
+        "cabinNameArr": [
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class",
+            "Economy Class"
+        ],
+        "flightTimeArr": [
+            [
+                "2022-05-31T07:31:00",
+                "2022-05-31T11:00:00",
+                "2022-05-31T17:40:00",
+                "2022-06-01T07:50:00",
+                "2022-06-01T22:25:00",
+                "2022-06-02T05:45:00"
+            ],
+            [
+                "2022-05-31T06:30:00",
+                "2022-05-31T09:59:00",
+                "2022-05-31T17:40:00",
+                "2022-06-01T07:50:00",
+                "2022-06-01T22:25:00",
+                "2022-06-02T05:45:00"
+            ],
+            [
+                "2022-05-31T07:31:00",
+                "2022-05-31T11:00:00",
+                "2022-05-31T19:30:00",
+                "2022-06-01T09:10:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T07:31:00",
+                "2022-05-31T11:00:00",
+                "2022-05-31T18:05:00",
+                "2022-06-01T07:30:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T10:39:00",
+                "2022-05-31T12:05:00",
+                "2022-05-31T16:30:00",
+                "2022-06-01T06:45:00",
+                "2022-06-01T21:00:00",
+                "2022-06-02T06:45:00"
+            ],
+            [
+                "2022-05-31T10:39:00",
+                "2022-05-31T12:05:00",
+                "2022-05-31T16:20:00",
+                "2022-06-01T08:20:00",
+                "2022-06-01T22:25:00",
+                "2022-06-02T05:45:00"
+            ],
+            [
+                "2022-05-31T08:05:00",
+                "2022-05-31T09:37:00",
+                "2022-05-31T16:20:00",
+                "2022-06-01T08:20:00",
+                "2022-06-01T22:25:00",
+                "2022-06-02T05:45:00"
+            ],
+            [
+                "2022-05-31T10:39:00",
+                "2022-05-31T12:05:00",
+                "2022-05-31T14:30:00",
+                "2022-06-01T05:55:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T10:39:00",
+                "2022-05-31T12:05:00",
+                "2022-05-31T18:20:00",
+                "2022-06-01T09:45:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T10:39:00",
+                "2022-05-31T12:05:00",
+                "2022-05-31T18:45:00",
+                "2022-06-01T09:00:00",
+                "2022-06-01T21:00:00",
+                "2022-06-02T06:45:00"
+            ],
+            [
+                "2022-05-31T06:30:00",
+                "2022-05-31T09:59:00",
+                "2022-05-31T21:30:00",
+                "2022-06-01T21:00:00"
+            ],
+            [
+                "2022-05-31T07:31:00",
+                "2022-05-31T11:00:00",
+                "2022-05-31T21:30:00",
+                "2022-06-01T21:00:00"
+            ],
+            [
+                "2022-05-31T06:00:00",
+                "2022-05-31T07:32:00",
+                "2022-05-31T10:15:00",
+                "2022-06-01T08:00:00"
+            ],
+            [
+                "2022-05-31T18:35:00",
+                "2022-05-31T20:03:00",
+                "2022-05-31T22:30:00",
+                "2022-06-01T14:10:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T10:39:00",
+                "2022-05-31T12:05:00",
+                "2022-05-31T16:00:00",
+                "2022-06-01T07:20:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T08:05:00",
+                "2022-05-31T09:37:00",
+                "2022-05-31T16:20:00",
+                "2022-06-01T08:20:00",
+                "2022-06-01T22:25:00",
+                "2022-06-02T05:45:00"
+            ],
+            [
+                "2022-05-31T11:47:00",
+                "2022-05-31T15:20:00",
+                "2022-05-31T18:05:00",
+                "2022-06-01T07:30:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T11:47:00",
+                "2022-05-31T15:20:00",
+                "2022-05-31T19:30:00",
+                "2022-06-01T09:10:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T18:35:00",
+                "2022-05-31T20:03:00",
+                "2022-05-31T22:30:00",
+                "2022-06-01T14:10:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T11:47:00",
+                "2022-05-31T15:20:00",
+                "2022-05-31T21:45:00",
+                "2022-06-01T11:45:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T06:31:00",
+                "2022-05-31T09:49:00",
+                "2022-05-31T21:30:00",
+                "2022-06-01T17:25:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T11:00:00",
+                "2022-05-31T12:22:00",
+                "2022-05-31T19:55:00",
+                "2022-06-01T17:30:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T15:00:00",
+                "2022-05-31T18:18:00",
+                "2022-05-31T21:30:00",
+                "2022-06-01T17:25:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T07:33:00",
+                "2022-05-31T09:00:00",
+                "2022-05-31T19:55:00",
+                "2022-06-01T17:30:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T07:33:00",
+                "2022-05-31T09:00:00",
+                "2022-05-31T19:55:00",
+                "2022-06-01T17:30:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T06:20:00",
+                "2022-05-31T07:42:00",
+                "2022-05-31T19:55:00",
+                "2022-06-01T17:30:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T11:00:00",
+                "2022-05-31T12:22:00",
+                "2022-05-31T19:55:00",
+                "2022-06-01T17:30:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T11:00:00",
+                "2022-05-31T12:22:00",
+                "2022-05-31T19:55:00",
+                "2022-06-01T17:30:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T11:47:00",
+                "2022-05-31T15:20:00",
+                "2022-05-31T17:40:00",
+                "2022-06-01T07:50:00",
+                "2022-06-01T22:25:00",
+                "2022-06-02T05:45:00"
+            ],
+            [
+                "2022-05-31T15:32:00",
+                "2022-05-31T17:34:00",
+                "2022-05-31T18:35:00",
+                "2022-06-01T17:30:00",
+                "2022-06-01T19:40:00",
+                "2022-06-02T00:05:00"
+            ],
+            [
+                "2022-05-31T13:40:00",
+                "2022-05-31T14:57:00",
+                "2022-05-31T17:42:00",
+                "2022-05-31T23:05:00",
+                "2022-06-01T10:45:00",
+                "2022-06-02T07:00:00"
+            ],
+            [
+                "2022-05-31T13:40:00",
+                "2022-05-31T14:57:00",
+                "2022-05-31T23:57:00",
+                "2022-06-01T05:14:00",
+                "2022-06-01T10:45:00",
+                "2022-06-02T07:00:00"
+            ],
+            [
+                "2022-05-31T06:00:00",
+                "2022-05-31T07:32:00",
+                "2022-05-31T21:38:00",
+                "2022-06-01T00:30:00",
+                "2022-06-01T10:45:00",
+                "2022-06-02T07:00:00"
+            ],
+            [
+                "2022-05-31T10:39:00",
+                "2022-05-31T12:05:00",
+                "2022-05-31T18:20:00",
+                "2022-06-01T09:45:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T07:31:00",
+                "2022-05-31T11:00:00",
+                "2022-05-31T19:30:00",
+                "2022-06-01T09:10:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T06:00:00",
+                "2022-05-31T07:32:00",
+                "2022-05-31T18:20:00",
+                "2022-06-01T09:45:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T15:43:00",
+                "2022-05-31T17:10:00",
+                "2022-05-31T18:20:00",
+                "2022-06-01T09:45:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T10:39:00",
+                "2022-05-31T12:05:00",
+                "2022-05-31T14:30:00",
+                "2022-06-01T05:55:00",
+                "2022-06-01T22:05:00",
+                "2022-06-02T05:55:00"
+            ],
+            [
+                "2022-05-31T06:00:00",
+                "2022-05-31T07:32:00",
+                "2022-05-31T17:55:00",
+                "2022-05-31T20:47:00",
+                "2022-06-01T10:45:00",
+                "2022-06-02T07:00:00"
+            ],
+            [
+                "2022-05-31T06:00:00",
+                "2022-05-31T07:32:00",
+                "2022-05-31T13:16:00",
+                "2022-05-31T16:10:00",
+                "2022-06-01T10:45:00",
+                "2022-06-02T07:00:00"
+            ]
+        ],
+        "airArr": [
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Vienna Schwechat Airport"
+                ],
+                [
+                    "Vienna Schwechat Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Vienna Schwechat Airport"
+                ],
+                [
+                    "Vienna Schwechat Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Heathrow Airport"
+                ],
+                [
+                    "Heathrow Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Vienna Schwechat Airport"
+                ],
+                [
+                    "Vienna Schwechat Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Vienna Schwechat Airport"
+                ],
+                [
+                    "Vienna Schwechat Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Heathrow Airport"
+                ],
+                [
+                    "Heathrow Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Vienna Schwechat Airport"
+                ],
+                [
+                    "Vienna Schwechat Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Philadelphia Intl Airport"
+                ],
+                [
+                    "Philadelphia Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Philadelphia Intl Airport"
+                ],
+                [
+                    "Philadelphia Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Vienna Schwechat Airport"
+                ],
+                [
+                    "Vienna Schwechat Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Dallas/Fort Worth Intl Airport"
+                ],
+                [
+                    "Dallas/Fort Worth Intl Airport",
+                    "Doha Intl Airport"
+                ],
+                [
+                    "Doha Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Denver Intl Airport"
+                ],
+                [
+                    "Denver Intl Airport",
+                    "Washington Dulles Intl Airport"
+                ],
+                [
+                    "Washington Dulles Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Denver Intl Airport"
+                ],
+                [
+                    "Denver Intl Airport",
+                    "Washington Dulles Intl Airport"
+                ],
+                [
+                    "Washington Dulles Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Washington Dulles Intl Airport"
+                ],
+                [
+                    "Washington Dulles Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "Newark Liberty Intl Airport"
+                ],
+                [
+                    "Newark Liberty Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Frankfurt am Main Airport"
+                ],
+                [
+                    "Frankfurt am Main Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Washington Dulles Intl Airport"
+                ],
+                [
+                    "Washington Dulles Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ],
+            [
+                [
+                    "Lambert Intl Airport",
+                    "O'Hare Intl Airport"
+                ],
+                [
+                    "O'Hare Intl Airport",
+                    "Washington Dulles Intl Airport"
+                ],
+                [
+                    "Washington Dulles Intl Airport",
+                    "Bole Intl Airport"
+                ]
+            ]
+        ],
+        "airCodeArr": [
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "VIE"
+                ],
+                [
+                    "VIE",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "VIE"
+                ],
+                [
+                    "VIE",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "LHR"
+                ],
+                [
+                    "LHR",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "VIE"
+                ],
+                [
+                    "VIE",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "VIE"
+                ],
+                [
+                    "VIE",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "LHR"
+                ],
+                [
+                    "LHR",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "VIE"
+                ],
+                [
+                    "VIE",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "PHL"
+                ],
+                [
+                    "PHL",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "PHL"
+                ],
+                [
+                    "PHL",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "VIE"
+                ],
+                [
+                    "VIE",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "DFW"
+                ],
+                [
+                    "DFW",
+                    "DOH"
+                ],
+                [
+                    "DOH",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "DEN"
+                ],
+                [
+                    "DEN",
+                    "IAD"
+                ],
+                [
+                    "IAD",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "DEN"
+                ],
+                [
+                    "DEN",
+                    "IAD"
+                ],
+                [
+                    "IAD",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "IAD"
+                ],
+                [
+                    "IAD",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "EWR"
+                ],
+                [
+                    "EWR",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "FRA"
+                ],
+                [
+                    "FRA",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "IAD"
+                ],
+                [
+                    "IAD",
+                    "ADD"
+                ]
+            ],
+            [
+                [
+                    "STL",
+                    "ORD"
+                ],
+                [
+                    "ORD",
+                    "IAD"
+                ],
+                [
+                    "IAD",
+                    "ADD"
+                ]
+            ]
+        ]
+    }
+}
