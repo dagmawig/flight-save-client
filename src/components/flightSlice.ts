@@ -1,6 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 
+export interface SavedSearch {
+    searchInfo: {
+        departCity: string,
+        arrCity: string,
+        departDate: string | null,
+        cabinClass: string,
+        stops: string,
+    },
+    flightName: string,
+    minPrice: number,
+    alertPrice: number
+}
+
 interface UserData {
     searchInfo: {
         departCity: string,
@@ -11,7 +24,7 @@ interface UserData {
     },
     searchResult: {
         populated: boolean,
-        dep:{
+        dep: {
             totPrice: number[],
             airline: string[],
             flightInfo: {
@@ -26,6 +39,7 @@ interface UserData {
             }
         }
     },
+    savedSearch: SavedSearch[],
     resultView: boolean,
     loading: boolean
 }
@@ -44,7 +58,7 @@ const initialState: UserData = {
     },
     searchResult: {
         populated: false,
-        dep:{
+        dep: {
             totPrice: [],
             airline: [],
             flightInfo: {
@@ -59,6 +73,20 @@ const initialState: UserData = {
             }
         }
     },
+    savedSearch: [
+        {
+            searchInfo: {
+                departCity: 'STL',
+                arrCity: 'NYC',
+                departDate: '2022-06-01T02:39:29.000Z',
+                cabinClass: 'ECO',
+                stops: '0'
+            },
+            flightName: 'Flight to NYC',
+            minPrice: 215,
+            alertPrice: 200
+        }
+    ],
     resultView: false,
     loading: false
 }
@@ -90,12 +118,15 @@ export const flightSlice = createSlice({
         },
         changeResult: (state, action: PayloadAction<any>) => {
             state.searchResult = action.payload
+        },
+        changeSavedSearch: (state, action: PayloadAction<SavedSearch[]>) => {
+            state.savedSearch = action.payload
         }
     }
 })
 
 
-export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult } = flightSlice.actions
+export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch } = flightSlice.actions
 
 export default flightSlice.reducer
 
