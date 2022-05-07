@@ -18,7 +18,7 @@ import { DateRangePicker, DateRange } from '@mui/x-date-pickers-pro/DateRangePic
 import fData from './data.json'
 import SearchBox from "./SearchBox";
 import SearchResultBox from "./FlightResult"
-import { useAppDispatch, useAppSelector} from './hooks'
+import { useAppDispatch, useAppSelector } from './hooks'
 
 interface IProps {
     kind: string
@@ -128,12 +128,18 @@ export default function Home() {
         setFKind(e.target.value)
     }
 
-    const resultView = useAppSelector(state=>state.flight.resultView)
+    const resultView = useAppSelector(state => state.flight.resultView)
 
     return (
-           (!resultView)?<SearchBox /> :
-            <SearchResultBox />
- 
+        (!resultView) ? (
+            <Box sx={{ height: "calc(100vh - 80px)", margin: 0, padding: 0 }}>
+                <SearchBox />
+            </Box>
+        ) :
+            <Box sx={{width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "calc(100vh - 80px)" }}>
+                <SearchResultBox />
+            </Box>
+
 
         // <Box sx={{  width: "100%", my: 0, mx: "auto", padding: 0, margin:0, height: "calc(100vh-50px)", overflowY: "hidden"}}>
         //     <Box sx={{  position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', padding: "5px", margin:0, backgroundColor: "rgba(255, 255, 255, 1)" }} >

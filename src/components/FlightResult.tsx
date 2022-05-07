@@ -212,12 +212,12 @@ const SearchResultBox = () => {
     })
 
     return (
-        <Box sx={{ width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "calc(100vh-50px)", overflowY: "hidden" }}>
+        <Box sx={{ width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "100%", overflowY: "hidden", display: "flex", flexDirection:"column" }}>
             <Box sx={{ position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', padding: "5px", margin: 0, backgroundColor: "rgba(255, 255, 255, 1)" }} >
                 <Button variant="contained" color="primary" onClick={handleBack}><ArrowBackIcon /></Button>
                 <Button variant="contained" color="success" sx={{ mr: "5px" }} >Save Search</Button>
             </Box>
-            <Box sx={{ maxHeight: "calc(100vh-80px)", overflowY: "scroll", marginTop: "30px" }}>
+            <Box sx={{ maxHeight: "calc(100vh-110px)", overflowY: "auto", marginTop: "30px" }}>
                 {SearchResultList}
             </Box>
         </Box>

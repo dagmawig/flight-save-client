@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Footer from './components/Footer';
 import Header from './components/Header'
 import Home from './components/Home';
 import Loading from './components/Loading';
@@ -10,8 +11,9 @@ function App() {
     <div className="App">
       <Header/>
       <Loading/>
-      <SavedSearchBox/>
-      {/* <Home/> */}
+      {/* <SavedSearchBox/> */}
+      <Home/>
+      <Footer/>
     </div>
   );
 }
