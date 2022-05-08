@@ -22,6 +22,10 @@ interface UserData {
         cabinClass: string,
         stops: string,
     },
+    saveModal: {
+        flightName: string,
+        alertPrice: string | null
+    },
     searchResult: {
         populated: boolean,
         dep: {
@@ -55,6 +59,10 @@ const initialState: UserData = {
         departDate: new Date().toISOString(),
         cabinClass: 'ECO',
         stops: '0'
+    },
+    saveModal: {
+        flightName: '',
+        alertPrice: null
     },
     searchResult: {
         populated: false,
@@ -121,12 +129,18 @@ export const flightSlice = createSlice({
         },
         changeSavedSearch: (state, action: PayloadAction<SavedSearch[]>) => {
             state.savedSearch = action.payload
-        }
+        },
+        changeFlightName: (state, action: PayloadAction<string>) => {
+            state.saveModal.flightName = action.payload
+        },
+        changeAlertPrice: (state, action: PayloadAction<string>) => {
+            state.saveModal.alertPrice = action.payload
+        },
     }
 })
 
 
-export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch } = flightSlice.actions
+export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch, changeAlertPrice, changeFlightName } = flightSlice.actions
 
 export default flightSlice.reducer
 

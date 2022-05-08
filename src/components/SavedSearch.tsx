@@ -97,10 +97,10 @@ export default function SavedSearchBox() {
     })
 
     return (
-        <Box sx={{ position: "static", width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "calc(100vh-80px)", overflowY: "hidden" }}>
+        <Box sx={{  width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "calc(100vh - 80px)", overflowY: "hidden", display: "flex", flexDirection:"column" }}>
             <Box sx={{ position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'center', alignItems: "center", padding: "5px", margin: 0, backgroundColor: "rgba(255,255,255, 1)" }} >
                 <Chip size="small" label="SAVED SEARCHES" sx={{backgroundColor: "info.main", fontWeight: "bold", color: "white"}} /></Box>
-            <Box sx={{ maxHeight: "calc(100vh-80px)", overflowY: "scroll", marginTop: "30px" }}>
+            <Box sx={{ maxHeight: "calc(100vh - 110px)", display: "flex", overflowY: "auto", marginTop: "30px" }}>
             {SavedSearchList}
             </Box>
         </Box>
