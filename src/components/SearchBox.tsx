@@ -18,7 +18,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import fData from './data.json';
 import cityCode from './city.json';
 import { useAppDispatch, useAppSelector } from './hooks'
-import { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult } from './flightSlice'
+import { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeDepDString } from './flightSlice'
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { json } from "stream/consumers";
 
@@ -53,8 +53,10 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
     const handleDepDate = (date: string | null) => {
         if (date !== null) {
             const isoDate = new Date(date).toISOString()
-            console.log(new Date(date).toISOString())
             dispatch(setDepDate(isoDate))
+            const localDate = new Date(date);
+            const dateString = `${localDate.getFullYear()}-${Math.floor((localDate.getMonth() + 1) / 10)}${(localDate.getMonth() + 1) % 10}-${Math.floor(localDate.getDate() / 10)}${localDate.getDate() % 10}`;
+            dispatch(changeDepDString(dateString))
         }
 
 
@@ -188,58 +190,48 @@ const SearchBox = () => {
     const searchInfo = useAppSelector(state => state.flight.searchInfo);
 
     const handleSearch = () => {
-        dispatch(changeView(true))
-        return;
-        // if (searchInfo.departCity !== "" && searchInfo.arrCity !== "", searchInfo.departDate !== null) {
-        //     const localDate = new Date(searchInfo.departDate);
-        //     const dateString = `${localDate.getFullYear()}-${Math.floor((localDate.getMonth() + 1) / 10)}${(localDate.getMonth() + 1) % 10}-${Math.floor(localDate.getDate() / 10)}${localDate.getDate() % 10}`;
+        if (searchInfo.departCity !== "" && searchInfo.arrCity !== "", searchInfo.departDate !== null) {
 
-        //     const data = {
-        //         searchFilter: {
-        //             type: "ONE_WAY",
-        //             dep: {
-        //                 date_departure: dateString,
-        //                 location_departure: searchInfo.departCity,
-        //                 location_arrival: searchInfo.arrCity,
-        //                 number_of_stops: searchInfo.stops,
-        //                 classType: searchInfo.cabinClass
-        //             }
-        //         }
-        //     }
+            const data = {
+                searchFilter: {
+                    date_departure: searchInfo.departDString,
+                    location_departure: searchInfo.departCity,
+                    location_arrival: searchInfo.arrCity,
+                    number_of_stops: searchInfo.stops,
+                    classType: searchInfo.cabinClass
+                }
+            }
 
-        //     const searchFlight = async (): Promise<void | AxiosResponse<any, any>> => {
-        //         let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/search/", { ...data }).catch(err => {
-        //             console.log("errrrr", err);
-        //             dispatch(changeLoading(false));
-        //             alert("no flight on this date!")
-        //     })
-        //         return resp;
-        //     }
+            const searchFlight = async (): Promise<void | AxiosResponse<any, any>> => {
+                let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/search/", { ...data }).catch(err => {
+                    console.log("errrrr", err);
+                    dispatch(changeLoading(false));
+                    alert("no flight on this date!")
+            })
+                return resp;
+            }
 
-        //     dispatch(changeLoading(true));
-        //     searchFlight().then(res => {
-        //         if (res) {
-        //             console.log("search data", res.data);
-        //             if(res.data.success) {
-        //                 res.data.data.populated = true;
-        //                 dispatch(changeResult(res.data.data))
-        //                 dispatch(changeView(true));
-        //                 dispatch(changeLoading(false));
-        //             }
-        //             else {
-        //                 dispatch(changeLoading(false));
-        //                 alert("no flight found!")
-        //             }    
-        //         }
-
-        //     })
-
-        // }
-
+            dispatch(changeLoading(true));
+            searchFlight().then(res => {
+                if (res) {
+                    console.log("search data", res.data);
+                    if(res.data.success) {
+                        res.data.data.populated = true;
+                        dispatch(changeResult(res.data.data))
+                        dispatch(changeView(true));
+                        dispatch(changeLoading(false));
+                    }
+                    else {
+                        dispatch(changeLoading(false));
+                        alert("no flight found!")
+                    }    
+                }
+            })
+        }
     }
 
     return (
-        <Box sx={{ width: "90%", height: "100%", margin: "auto", display: "flex", justifyContent: 'center', flexDirection: "column", backgroundColor: "#e3f2fd", borderRadius: "5px", padding: "5px" }}>
+        <Box sx={{ width: "90%", height: "100%", margin: "auto", display: "flex", justifyContent: 'start', flexDirection: "column", backgroundColor: "#e3f2fd", borderRadius: "5px", padding: "5px" }}>
             <Toolbar sx={{ color: "#3f51b5", fontWeight: "bold", width: "100%", fontSize: "16pt" }}>
                 Search Flight
             </Toolbar>

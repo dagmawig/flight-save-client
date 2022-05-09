@@ -1,17 +1,31 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 
+interface SearchResult {
+    populated: boolean,
+    totPrice: number[],
+    airline: string[],
+    flightInfo: {
+        sliceIDArr: number[],
+        segmentIDArr: number[][],
+        totDurationArr: number[],
+        overnightArr: boolean[],
+        cabinNameArr: string[],
+        flightTimeArr: string[][],
+        airArr: string[][][],
+        airCodeArr: string[][][]
+    }
+}
+
 export interface SavedSearch {
-    searchInfo: {
-        departCity: string,
-        arrCity: string,
-        departDate: string | null,
-        cabinClass: string,
-        stops: string,
-    },
-    flightName: string,
-    minPrice: number,
-    alertPrice: number
+    name: string,
+    classType: string,
+    alertPrice: string,
+    dateDeparture: string,
+    location_departure: string,
+    location_arrival: string,
+    number_of_stops: string,
+    searchResult: SearchResult
 }
 
 interface UserData {
@@ -19,6 +33,7 @@ interface UserData {
         departCity: string,
         arrCity: string,
         departDate: string | null,
+        departDString: string,
         cabinClass: string,
         stops: string,
     },
@@ -26,26 +41,11 @@ interface UserData {
         flightName: string,
         alertPrice: string | null
     },
-    searchResult: {
-        populated: boolean,
-        dep: {
-            totPrice: number[],
-            airline: string[],
-            flightInfo: {
-                sliceIDArr: number[],
-                segmentIDArr: number[][],
-                totDurationArr: number[],
-                overnightArr: boolean[],
-                cabinNameArr: string[],
-                flightTimeArr: string[][],
-                airArr: string[][][],
-                airCodeArr: string[][][]
-            }
-        }
-    },
+    searchResult: SearchResult
     savedSearch: SavedSearch[],
     resultView: boolean,
-    loading: boolean
+    loading: boolean,
+    saved: boolean
 }
 
 interface CabinClass {
@@ -57,6 +57,7 @@ const initialState: UserData = {
         departCity: '',
         arrCity: '',
         departDate: new Date().toISOString(),
+        departDString: '',
         cabinClass: 'ECO',
         stops: '0'
     },
@@ -66,37 +67,23 @@ const initialState: UserData = {
     },
     searchResult: {
         populated: false,
-        dep: {
-            totPrice: [],
-            airline: [],
-            flightInfo: {
-                sliceIDArr: [],
-                segmentIDArr: [],
-                totDurationArr: [],
-                overnightArr: [],
-                cabinNameArr: [],
-                flightTimeArr: [],
-                airArr: [],
-                airCodeArr: []
-            }
+        totPrice: [],
+        airline: [],
+        flightInfo: {
+            sliceIDArr: [],
+            segmentIDArr: [],
+            totDurationArr: [],
+            overnightArr: [],
+            cabinNameArr: [],
+            flightTimeArr: [],
+            airArr: [],
+            airCodeArr: [],
         }
     },
-    savedSearch: [
-        {
-            searchInfo: {
-                departCity: 'STL',
-                arrCity: 'NYC',
-                departDate: '2022-06-01T02:39:29.000Z',
-                cabinClass: 'ECO',
-                stops: '0'
-            },
-            flightName: 'Flight to NYC',
-            minPrice: 215,
-            alertPrice: 200
-        }
-    ],
+    savedSearch: [],
     resultView: false,
-    loading: false
+    loading: false,
+    saved: false
 }
 
 export const flightSlice = createSlice({
@@ -136,11 +123,17 @@ export const flightSlice = createSlice({
         changeAlertPrice: (state, action: PayloadAction<string>) => {
             state.saveModal.alertPrice = action.payload
         },
+        changeDepDString: (state, action: PayloadAction<string>) => {
+            state.searchInfo.departDString = action.payload
+        },
+        changeSaved: (state, action: PayloadAction<boolean>) => {
+            state.saved = action.payload
+        },
     }
 })
 
 
-export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch, changeAlertPrice, changeFlightName } = flightSlice.actions
+export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch, changeAlertPrice, changeFlightName, changeDepDString, changeSaved } = flightSlice.actions
 
 export default flightSlice.reducer
 

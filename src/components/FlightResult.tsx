@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import fData from './data.json'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useAppDispatch, useAppSelector } from './hooks'
-import { changeView, changeAlertPrice, changeFlightName, changeLoading, changeSavedSearch } from "./flightSlice";
+import { changeView, changeAlertPrice, changeFlightName, changeLoading, changeSavedSearch, changeSaved} from "./flightSlice";
 import SaveIcon from '@mui/icons-material/Save';
 import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
@@ -189,32 +189,30 @@ const SearchResultBox = () => {
     const dispatch = useAppDispatch();
 
     const handleBack = () => {
+        dispatch(changeSaved(false));
         dispatch(changeView(false));
     }
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
+    const saved = useAppSelector(state=>state.flight.saved);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const searchInfo = useAppSelector(state => state.flight.searchInfo)
     const handleSave = () => {
         if (flightName === '') { alert("enter flight name"); return; }
         if (alertPrice === null || alertPrice >= `${Math.ceil(result.totPrice[0])}`) { alert('please enter valid alert price'); return }
-        const localDate = new Date(searchInfo.departDate || '');
-        const dateString = `${localDate.getFullYear()}-${Math.floor((localDate.getMonth() + 1) / 10)}${(localDate.getMonth() + 1) % 10}-${Math.floor(localDate.getDate() / 10)}${localDate.getDate() % 10}`;
 
         const saveObj = {
             userID: "DAG",
             searchData: {
-                type: "ONE_WAY",
                 name: flightName,
                 classType: searchInfo.cabinClass,
+                alertPrice: alertPrice,
+                date_departure: searchInfo.departDString,
+                location_departure: searchInfo.departCity,
+                location_arrival: searchInfo.arrCity,
+                number_of_stops: searchInfo.stops,
                 searchResult: result,
-                dep: {
-                    date_departure: dateString,
-                    location_departure: searchInfo.departCity,
-                    location_arrival: searchInfo.arrCity,
-                    number_of_stops: searchInfo.stops
-                }
             }
         }
 
@@ -232,12 +230,17 @@ const SearchResultBox = () => {
                 console.log("save data", res.data);
                 if(res.data.success) {
                     dispatch(changeLoading(false));
-                    dispatch(changeSavedSearch(res.data.data))
+                    dispatch(changeSavedSearch(res.data.data.user.searchData));
+                    dispatch(changeFlightName(''));
+                    dispatch(changeAlertPrice(''));
+                    dispatch(changeSaved(true));
                     navigate('/saved');
                     alert('flight search saved!');
                 }
                 else {
                     dispatch(changeLoading(false));
+                    dispatch(changeFlightName(''));
+                    dispatch(changeAlertPrice(''));
                     alert('saving error');
                 }
             }
@@ -259,7 +262,7 @@ const SearchResultBox = () => {
     const searchResult = useAppSelector(state => state.flight.searchResult);
     const flightName = useAppSelector(state => state.flight.saveModal.flightName);
     const alertPrice = useAppSelector(state => state.flight.saveModal.alertPrice);
-    const result = (searchResult.populated) ? searchResult.dep : fData;
+    const result = (searchResult.populated) ? searchResult : fData;
     const SearchResultList = result.totPrice.map((price, ind) => {
         return (
             <SearchResultItem key={'result' + ind} data={
@@ -286,7 +289,7 @@ const SearchResultBox = () => {
         <Box sx={{ width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "100%", overflowY: "hidden", display: "flex", flexDirection: "column" }}>
             <Box sx={{ position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', padding: "5px", margin: 0, backgroundColor: "rgba(255, 255, 255, 1)" }} >
                 <Button variant="contained" color="primary" onClick={handleBack}><ArrowBackIcon /></Button>
-                <Button variant="contained" color="success" sx={{ mr: "5px" }} onClick={handleOpen} >Save Search</Button>
+                <Button disabled={saved} variant="contained" color="success" sx={{ mr: "5px" }} onClick={handleOpen} >Save Search</Button>
             </Box>
             <Box sx={{ maxHeight: "calc(100vh-110px)", overflowY: "auto", marginTop: "30px" }}>
                 {SearchResultList}
