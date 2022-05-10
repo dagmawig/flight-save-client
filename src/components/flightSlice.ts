@@ -21,7 +21,7 @@ export interface SavedSearch {
     name: string,
     classType: string,
     alertPrice: string,
-    dateDeparture: string,
+    date_departure: string,
     location_departure: string,
     location_arrival: string,
     number_of_stops: string,

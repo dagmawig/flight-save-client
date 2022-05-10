@@ -195,13 +195,33 @@ const SearchResultBox = () => {
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
     const saved = useAppSelector(state=>state.flight.saved);
-    const handleOpen = () => setOpen(true);
+    const savedSearch = useAppSelector(state=>state.flight.savedSearch);
+    const handleOpen = () => {
+        if(checkExist().length !== 0) {
+            alert(`Flight search already exists under name '${checkExist()[0].name}'`); 
+            return;
+        }
+        return setOpen(true);
+    }
     const handleClose = () => setOpen(false);
     const searchInfo = useAppSelector(state => state.flight.searchInfo)
+    const checkExist = () => {
+        const result = savedSearch.filter(search=> {
+            return (
+                searchInfo.departCity === search.location_departure &&
+                searchInfo.arrCity === search.location_arrival &&
+                searchInfo.departDString === search.date_departure &&
+                searchInfo.cabinClass === search.classType &&
+                searchInfo.stops == search.number_of_stops
+            )
+        });
+
+        return result;        
+    }
     const handleSave = () => {
         if (flightName === '') { alert("enter flight name"); return; }
         if (alertPrice === null || alertPrice >= `${Math.ceil(result.totPrice[0])}`) { alert('please enter valid alert price'); return }
-
+        
         const saveObj = {
             userID: "DAG",
             searchData: {
