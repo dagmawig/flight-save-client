@@ -6,8 +6,10 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { changeSavedSearch } from "./flightSlice";
+import { changeSavedSearch, changeLoading } from "./flightSlice";
 import FlightClassIcon from '@mui/icons-material/FlightClass';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { Http2Server } from "http2";
 
 interface IProps {
     data: SavedSearch,
@@ -33,8 +35,42 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
 
     }
     function handleDelete() {
-        savedArr.splice(itemNo, 1)
-        dispatch(changeSavedSearch(savedArr))
+        console.log("deleeete")
+        let arr = [...savedArr]
+        arr.splice(itemNo, 1)
+        const data = {
+            userID: "DAG",
+            savedSearch: arr
+        }
+        const updateSearch = async (): Promise<void | AxiosResponse<any, any>> => {
+            let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/updateSearch/", data).catch(err => {
+                console.log("errrrr", err);
+                dispatch(changeLoading(false));
+                alert(`error deleting ${err}`);
+        })
+            return resp;
+        }
+
+        dispatch(changeLoading(true));
+        setOpen(false);
+        updateSearch().then(res => {
+            if(res) {
+                if(res.data.success) {
+                    dispatch(changeSavedSearch(res.data.data.user.searchData));
+                    dispatch(changeLoading(false));
+                    alert("delete successful!")
+                }
+                else {
+                    dispatch(changeLoading(false));
+                    alert(`${res.data.error}`);
+                }
+            }
+            else {
+                dispatch(changeLoading(false));
+                alert("server connection failed!");
+            }
+        })
+
     }
     console.log("saves s", data)
     return (
@@ -57,7 +93,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "space-around", padding: "3px" }}>
                     <Typography sx={{ fontSize: "inherit" }}>
-                        <Chip label={`MIN PRICE: $${data.searchResult.totPrice[0]}`} color="primary" variant="outlined" />
+                        <Chip label={`MIN PRICE: $${Math.ceil(data.searchResult.totPrice[0])}`} color="primary" variant="outlined" />
                     </Typography>
                     <Typography sx={{ fontSize: "inherit" }}>
                         <Chip label={`ALERT PRICE: $${data.alertPrice}`} color="primary" variant="outlined" />

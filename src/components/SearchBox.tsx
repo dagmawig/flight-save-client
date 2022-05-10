@@ -226,6 +226,10 @@ const SearchBox = () => {
                         alert("no flight found!")
                     }    
                 }
+                else {
+                    dispatch(changeLoading(false));
+                    alert("server connection failed!");
+                }
             })
         }
     }
