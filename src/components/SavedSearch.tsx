@@ -1,5 +1,5 @@
 import { Box, Button, Card, CardContent, Typography, Chip, Modal } from "@mui/material";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from './hooks'
 import { changeResult, changeView, SavedSearch } from "./flightSlice";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -221,9 +221,46 @@ export default function SavedSearchBox() {
 
     const SavedSearchList = savedResultArr.map((savedItem, ind) => {
         return (
-            <SavedSearchItem data={savedItem} key={"savedItem"+ind} itemNo={ind} />
+            <SavedSearchItem data={savedItem} key={"savedItem" + ind} itemNo={ind} />
         )
     })
+
+    const dispatch = useAppDispatch();
+
+
+    useEffect(() => {
+        const loadUserData = async (): Promise<void | AxiosResponse<any, any>> => {
+            const data = {
+                email: "dgebreselasse@gmail.com",
+                userID: "DAG"
+            }
+
+            let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/loadData/", { ...data }).catch(err => {
+                console.log("errrrr", err);
+                dispatch(changeLoading(false));
+                alert("no flight on this date!")
+            })
+            return resp;
+        }
+
+        dispatch(changeLoading(true));
+        loadUserData().then(res => {
+            if(res) {
+                if(res.data.success) {
+                    dispatch(changeSavedSearch(res.data.data.user.searchData));
+                    dispatch(changeLoading(false));
+                }
+                else {
+                    dispatch(changeLoading(false));
+                    alert(res.data.error || res.data.message);
+                }
+            }
+            else {
+                dispatch(changeLoading(false));
+                alert("Server connection error!")
+            }
+        })
+    }, [])
 
     return (
         <Box sx={{ width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "calc(100vh - 80px)", overflowY: "hidden", display: "flex", flexDirection: "column" }}>
