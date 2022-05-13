@@ -1,7 +1,7 @@
 import { Box, Button, Card, CardContent, Typography, Chip, Modal } from "@mui/material";
 import React, { FC } from "react";
 import { useAppDispatch, useAppSelector } from './hooks'
-import { SavedSearch } from "./flightSlice";
+import { changeResult, changeView, SavedSearch } from "./flightSlice";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -10,6 +10,7 @@ import { changeSavedSearch, changeLoading } from "./flightSlice";
 import FlightClassIcon from '@mui/icons-material/FlightClass';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Http2Server } from "http2";
+import { useNavigate } from "react-router-dom";
 
 interface IProps {
     data: SavedSearch,
@@ -20,6 +21,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     let savedArr = useAppSelector(state => state.flight.savedSearch);
     interface FlightC {
@@ -32,8 +34,87 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
         FST: "First"
     }
     function handleSearch() {
+        const savedSearchItem = savedArr[itemNo];
+        const date = new Date().toISOString().slice(0, 10);
 
+        if (savedSearchItem.date_departure < date) {
+            alert("departure date has passed!")
+            return;
+        }
+        const data = {
+            searchFilter: {
+                date_departure: savedSearchItem.date_departure,
+                location_departure: savedSearchItem.location_departure,
+                location_arrival: savedSearchItem.location_arrival,
+                number_of_stops: savedSearchItem.number_of_stops,
+                classType: savedSearchItem.classType
+            }
+        }
+
+        const searchFlight = async (): Promise<void | AxiosResponse<any, any>> => {
+            let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/search/", { ...data }).catch(err => {
+                console.log("errrrr", err);
+                dispatch(changeLoading(false));
+                alert("no flight on this date!")
+            })
+            return resp;
+        }
+
+        dispatch(changeLoading(true));
+        searchFlight().then(res => {
+            if (res) {
+                if (res.data.success) {
+                    res.data.data.populated = true;
+                    dispatch(changeResult(res.data.data));
+                    let savedSearchArr = JSON.parse(JSON.stringify(savedArr));
+                    savedSearchArr[itemNo].searchResult = res.data.data;
+
+                    const data = {
+                        userID: "DAG",
+                        savedSearch: savedSearchArr
+                    }
+
+                    const updateSearch = async (): Promise<void | AxiosResponse<any, any>> => {
+                        let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/updateSearch/", data).catch(err => {
+                            console.log("errrrr", err);
+                            dispatch(changeLoading(false));
+                            alert(`error deleting ${err}`);
+                        })
+                        return resp;
+                    }
+
+                    updateSearch().then(res => {
+                        if (res) {
+                            if (res.data.success) {
+                                dispatch(changeSavedSearch(res.data.data.user.searchData));
+                            }
+                            else {
+                                dispatch(changeLoading(false));
+                                alert(`${res.data.error}`);
+                            }
+                        }
+                        else {
+                            dispatch(changeLoading(false));
+                            alert("server connection failed!");
+                        }
+                    })
+
+                    dispatch(changeView(true));
+                    navigate('/home');
+                    dispatch(changeLoading(false));
+                }
+                else {
+                    dispatch(changeLoading(false));
+                    alert("no flight found!")
+                }
+            }
+            else {
+                dispatch(changeLoading(false));
+                alert("server connection failed!");
+            }
+        })
     }
+
     function handleDelete() {
         console.log("deleeete")
         let arr = [...savedArr]
@@ -42,20 +123,21 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
             userID: "DAG",
             savedSearch: arr
         }
+
         const updateSearch = async (): Promise<void | AxiosResponse<any, any>> => {
             let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/updateSearch/", data).catch(err => {
                 console.log("errrrr", err);
                 dispatch(changeLoading(false));
                 alert(`error deleting ${err}`);
-        })
+            })
             return resp;
         }
 
         dispatch(changeLoading(true));
         setOpen(false);
         updateSearch().then(res => {
-            if(res) {
-                if(res.data.success) {
+            if (res) {
+                if (res.data.success) {
                     dispatch(changeSavedSearch(res.data.data.user.searchData));
                     dispatch(changeLoading(false));
                     alert("delete successful!")
@@ -77,7 +159,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
         <Card elevation={5} sx={{ minHeight: "190px", width: "95%", margin: "auto", my: "5px", fontSize: 14, borderRadius: 10 }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", backgroundColor: (itemNo % 2 === 0) ? "#e0e0e0" : '' }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "3px" }}>
-                    <Chip sx={{ }} icon={<FlightClassIcon />} label={classObj[data.classType]} color="primary" />
+                    <Chip sx={{}} icon={<FlightClassIcon />} label={classObj[data.classType]} color="primary" />
                     <Chip sx={{ width: '40px', paddingLeft: "10px" }} icon={<DeleteIcon />} label="" color="error" onClick={handleOpen} />
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "3px" }}>
@@ -139,7 +221,7 @@ export default function SavedSearchBox() {
 
     const SavedSearchList = savedResultArr.map((savedItem, ind) => {
         return (
-            <SavedSearchItem data={savedItem} itemNo={ind} />
+            <SavedSearchItem data={savedItem} key={"savedItem"+ind} itemNo={ind} />
         )
     })
 
