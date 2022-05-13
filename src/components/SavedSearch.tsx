@@ -170,7 +170,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
                         <Chip color="primary" sx={{ width: "100px", paddingLeft: "20px" }} icon={<>{data.location_departure} <FlightTakeoffIcon />{data.location_arrival}</>} variant="outlined" />
                     </Typography>
                     <Typography sx={{ fontSize: "inherit" }}>
-                        <Chip icon={<CalendarMonthIcon />} color="primary" label="2022-06-30" variant="outlined" />
+                        <Chip icon={<CalendarMonthIcon />} color="primary" label={data.date_departure} variant="outlined" />
                     </Typography>
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "space-around", padding: "3px" }}>
