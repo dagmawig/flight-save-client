@@ -190,6 +190,10 @@ const SearchBox = () => {
     const searchInfo = useAppSelector(state => state.flight.searchInfo);
 
     const handleSearch = () => {
+        if(searchInfo.departCity === searchInfo.arrCity && searchInfo.departCity !== "") {
+            alert("depart city can't be same as arrival city!");
+            return;
+        }
         if (searchInfo.departCity !== "" && searchInfo.arrCity !== "", searchInfo.departDate !== null) {
 
             const data = {
