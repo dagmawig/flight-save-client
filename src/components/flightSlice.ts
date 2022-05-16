@@ -29,6 +29,7 @@ export interface SavedSearch {
 }
 
 interface UserData {
+    userID : string,
     searchInfo: {
         departCity: string,
         arrCity: string,
@@ -53,6 +54,7 @@ interface CabinClass {
 }
 
 const initialState: UserData = {
+    userID: '',
     searchInfo: {
         departCity: '',
         arrCity: '',
@@ -129,11 +131,14 @@ export const flightSlice = createSlice({
         changeSaved: (state, action: PayloadAction<boolean>) => {
             state.saved = action.payload
         },
+        setUser: (state, action: PayloadAction<string>) => {
+            state.userID = action.payload
+        },
     }
 })
 
 
-export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch, changeAlertPrice, changeFlightName, changeDepDString, changeSaved } = flightSlice.actions
+export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch, changeAlertPrice, changeFlightName, changeDepDString, changeSaved, setUser } = flightSlice.actions
 
 export default flightSlice.reducer
 

@@ -196,6 +196,7 @@ const SearchResultBox = () => {
     const [open, setOpen] = React.useState(false);
     const saved = useAppSelector(state=>state.flight.saved);
     const savedSearch = useAppSelector(state=>state.flight.savedSearch);
+    const userID = useAppSelector(state=>state.flight.userID)
     const handleOpen = () => {
         if(checkExist().length !== 0) {
             alert(`Flight search already exists under name '${checkExist()[0].name}'`); 
@@ -223,7 +224,7 @@ const SearchResultBox = () => {
         if (alertPrice === null || alertPrice >= `${Math.ceil(result.totPrice[0])}`) { alert('please enter valid alert price'); return }
         
         const saveObj = {
-            userID: "DAG",
+            userID: userID,
             searchData: {
                 name: flightName,
                 classType: searchInfo.cabinClass,

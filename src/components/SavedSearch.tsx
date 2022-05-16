@@ -20,7 +20,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
+    const userID = localStorage.getItem("flightSave_userID")
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     let savedArr = useAppSelector(state => state.flight.savedSearch);
@@ -70,7 +70,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
                     savedSearchArr[itemNo].searchResult = res.data.data;
 
                     const data = {
-                        userID: "DAG",
+                        userID:  userID,
                         savedSearch: savedSearchArr
                     }
 
@@ -120,7 +120,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
         let arr = [...savedArr]
         arr.splice(itemNo, 1)
         const data = {
-            userID: "DAG",
+            userID: userID,
             savedSearch: arr
         }
 
@@ -218,7 +218,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
 export default function SavedSearchBox() {
 
     const savedResultArr: SavedSearch[] = useAppSelector(state => state.flight.savedSearch);
-
+    const userID = localStorage.getItem("flightSave_userID");
     const SavedSearchList = savedResultArr.map((savedItem, ind) => {
         return (
             <SavedSearchItem data={savedItem} key={"savedItem" + ind} itemNo={ind} />
@@ -231,8 +231,8 @@ export default function SavedSearchBox() {
     useEffect(() => {
         const loadUserData = async (): Promise<void | AxiosResponse<any, any>> => {
             const data = {
-                email: "dgebreselasse@gmail.com",
-                userID: "DAG"
+                email: localStorage.getItem("flightSave_email"),
+                userID: userID,
             }
 
             let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/loadData/", { ...data }).catch(err => {
