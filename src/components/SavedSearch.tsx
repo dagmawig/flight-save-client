@@ -11,6 +11,17 @@ import FlightClassIcon from '@mui/icons-material/FlightClass';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Http2Server } from "http2";
 import { useNavigate } from "react-router-dom";
+import {styled } from "@mui/material/styles";
+import { keyframes } from "@mui/system";
+
+const blink  = keyframes`
+from { opacity: 0; }
+to { opacity: 1; }`;
+
+const BlinkedBox = styled(Chip)({
+    backgroundColor: 'red',
+    animation: `${blink} 1s linear infinite`,
+  });
 
 interface IProps {
     data: SavedSearch,
@@ -102,6 +113,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
                     dispatch(changeView(true));
                     navigate('/home');
                     dispatch(changeLoading(false));
+                    if(savedArr[itemNo].searchResult.totPrice[0].toString() <= savedArr[itemNo].alertPrice) alert(`Min Price for ${savedArr[itemNo].name} is below alert price of $${savedArr[itemNo].alertPrice}!`)
                 }
                 else {
                     dispatch(changeLoading(false));
@@ -175,7 +187,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "space-around", padding: "3px" }}>
                     <Typography sx={{ fontSize: "inherit" }}>
-                        <Chip label={`MIN PRICE: $${Math.ceil(data.searchResult.totPrice[0])}`} color="primary" variant="outlined" />
+                        {(Math.ceil(data.searchResult.totPrice[0]).toString()<=data.alertPrice)? <BlinkedBox label={`MIN PRICE: $${Math.ceil(data.searchResult.totPrice[0])}`} /> : <Chip label={`MIN PRICE: $${Math.ceil(data.searchResult.totPrice[0])}`} color="primary" variant="outlined" /> }
                     </Typography>
                     <Typography sx={{ fontSize: "inherit" }}>
                         <Chip label={`ALERT PRICE: $${data.alertPrice}`} color="primary" variant="outlined" />
