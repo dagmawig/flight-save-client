@@ -38,7 +38,7 @@ const SignUp = () => {
     return (
         <Grid container sx={{ height: "100%", width: "100%", m: 0, p: 0  }}>
             <Grid container direction="column" sx={{ alignItems: "center", justifyContent: "center", border: 3, borderColor: "primary.main", borderRadius: "10px",  margin: "auto", height: "300px", width: "300px"}}>
-                <Toolbar sx={{height: "30px", fontWeight: "bold", width: "300px", m: 0, p: 0,  fontSize: "16pt" }}>
+                <Toolbar sx={{height: "30px", fontWeight: "bold", mx: "auto", p: 0,  fontSize: "16pt" }}>
                    <Box  sx={{textAlign: "center", margin: "auto", color: "primary.main"}}>Sign Up Flight Save</Box> 
                 </Toolbar>
                 <TextField onKeyDown={handleSignUpInput} onChange={(e) => getEmail(e.target.value)} focused  type={'email'} label="email" name="email" variant="outlined" sx={{width: "250px", mx: "auto", my: "5px"}}/>
