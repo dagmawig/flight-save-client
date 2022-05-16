@@ -196,7 +196,7 @@ const SearchResultBox = () => {
     const [open, setOpen] = React.useState(false);
     const saved = useAppSelector(state=>state.flight.saved);
     const savedSearch = useAppSelector(state=>state.flight.savedSearch);
-    const userID = useAppSelector(state=>state.flight.userID)
+    const userID = localStorage.getItem("flightSave_userID");
     const handleOpen = () => {
         if(checkExist().length !== 0) {
             alert(`Flight search already exists under name '${checkExist()[0].name}'`); 

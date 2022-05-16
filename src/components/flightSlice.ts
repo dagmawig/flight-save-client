@@ -134,11 +134,14 @@ export const flightSlice = createSlice({
         setUser: (state, action: PayloadAction<string>) => {
             state.userID = action.payload
         },
+        reset: (state) => {
+            state = initialState
+        },
     }
 })
 
 
-export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch, changeAlertPrice, changeFlightName, changeDepDString, changeSaved, setUser } = flightSlice.actions
+export const { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeSavedSearch, changeAlertPrice, changeFlightName, changeDepDString, changeSaved, setUser, reset } = flightSlice.actions
 
 export default flightSlice.reducer
 
