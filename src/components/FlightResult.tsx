@@ -14,6 +14,7 @@ import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { useNavigate } from "react-router-dom";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 interface IProps {
     data: {
@@ -148,13 +149,13 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <CardMedia component="img" image={process.env.PUBLIC_URL + '/image/airline.jpg'} sx={{ height: 40, maxWidth: 50, objectFit: "contain", border: 1, borderColor: "grey.500" }} />
                     <Box sx={{ display: "flex", width: "240px", justifyContent: "space-between", alignItems: "center", backgroundColor: "#03a9f4", padding: "5px", borderRadius: "5px" }}>
-                        <Box sx={{ height: "1px", backgroundColor: "#212121", position: "absolute", width: "240px", zIndex: 0 }}></Box>
+                        {/* <Box sx={{ height: "1px", backgroundColor: "#212121", position: "absolute", width: "240px", zIndex: 0 }}></Box> */}
                         <Box sx={{ width: "40px", backgroundColor: "#03a9f4", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center" }}>
                             <Typography sx={{ fontSize: 14, fontWeight: "bold", marginBottom: 0 }} color="text.primary" gutterBottom>
                                 {depTime()}
                             </Typography>
-                            <Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
-                                {data.flightInfo.airCode[0][0]}
+                            <Typography sx={{ fontSize: 10, display: "flex" }} color="text.secondary" gutterBottom>
+                                {data.flightInfo.airCode[0][0]} <ArrowForwardIosIcon fontSize="small" />
                             </Typography>
                         </Box>
 
@@ -164,8 +165,8 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
                             <Typography sx={{ fontSize: 14, fontWeight: "bold", marginBottom: 0 }} color="text.primary" gutterBottom>
                                 {arrTime()}
                             </Typography>
-                            <Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
-                                {data.flightInfo.airCode[data.flightInfo.airCode.length - 1][1]}
+                            <Typography sx={{ fontSize: 10, display: "flex" }} color="text.secondary" gutterBottom>
+                            <ArrowForwardIosIcon fontSize="small" /> {data.flightInfo.airCode[data.flightInfo.airCode.length - 1][1]}
                             </Typography>
                         </Box>
                     </Box>
