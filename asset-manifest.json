@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/flight-save-client/static/css/main.0f8b14f5.css",
+    "main.js": "/flight-save-client/static/js/main.6ce7919b.js",
+    "index.html": "/flight-save-client/index.html",
+    "main.0f8b14f5.css.map": "/flight-save-client/static/css/main.0f8b14f5.css.map",
+    "main.6ce7919b.js.map": "/flight-save-client/static/js/main.6ce7919b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f8b14f5.css",
+    "static/js/main.6ce7919b.js"
+  ]
+}
