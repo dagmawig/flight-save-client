@@ -257,7 +257,7 @@ const SearchResultBox = () => {
                     dispatch(changeAlertPrice(''));
                     dispatch(changeSaved(true));
                     navigate('/saved');
-                    alert('flight search saved!');
+                    alert('flight search saved!\nwe will check for price change every week.\nyou will get an email alert when price reaches below alert price.');
                 }
                 else {
                     dispatch(changeLoading(false));
