@@ -46,12 +46,12 @@ const SignUp = () => {
                 <Button onClick={handleSignUp} color="primary" variant="contained" sx={{marginTop: "5px"}}>Sign Up</Button>
                 <Box color='primary.text'>
                     <Link to="/">
-                        <a style={{fontSize: 12}}>Have an account? Login here.</a>
+                        <a href="/" style={{fontSize: 12}}>Have an account? Login here.</a>
                     </Link>
                 </Box>
                 <Box>
                     <Link to="/reset">
-                        <a style={{fontSize: 12}}>Forgot password? Reset password here.</a>
+                        <a href="/reset" style={{fontSize: 12}}>Forgot password? Reset password here.</a>
                     </Link>
                 </Box>
             </Grid>

@@ -12,7 +12,7 @@ import { changeView, changeAlertPrice, changeFlightName, changeLoading, changeSa
 import SaveIcon from '@mui/icons-material/Save';
 import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from "react-router-dom";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -214,7 +214,7 @@ const SearchResultBox = () => {
                 searchInfo.arrCity === search.location_arrival &&
                 searchInfo.departDString === search.date_departure &&
                 searchInfo.cabinClass === search.classType &&
-                searchInfo.stops == search.number_of_stops
+                searchInfo.stops === search.number_of_stops
             )
         });
 

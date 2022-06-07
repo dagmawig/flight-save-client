@@ -1,9 +1,7 @@
-import React from "react";
-import { AppBar, Toolbar, Box, Typography, Button, IconButton } from "@mui/material"
-import MenuIcon from "@mui/icons-material/Menu"
-import "./Header.css"
+import { Toolbar, Box, Button } from "@mui/material";
 import { useAppDispatch } from "./hooks";
-import { reset, changeLoading } from "./flightSlice"
+import { reset, changeLoading } from "./flightSlice";
+
 export default function Header() {
 
     const dispatch = useAppDispatch();
@@ -25,9 +23,3 @@ export default function Header() {
 
     )
 }
-
-{/* <AppBar sx={{ width: '412px'}}>
-                <Toolbar>
-                    Priceline
-                </Toolbar>
-            </AppBar> */}

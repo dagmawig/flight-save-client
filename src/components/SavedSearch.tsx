@@ -1,15 +1,13 @@
-import { Box, Button, Card, CardContent, Typography, Chip, Modal } from "@mui/material";
+import { Box,  Card, CardContent, Typography, Chip, Modal } from "@mui/material";
 import React, { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from './hooks'
 import { changeResult, changeView, SavedSearch } from "./flightSlice";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { changeSavedSearch, changeLoading } from "./flightSlice";
 import FlightClassIcon from '@mui/icons-material/FlightClass';
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { Http2Server } from "http2";
+import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from "react-router-dom";
 import {styled } from "@mui/material/styles";
 import { keyframes } from "@mui/system";
@@ -250,7 +248,7 @@ export default function SavedSearchBox() {
             let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/loadData/", { ...data }).catch(err => {
                 console.log("errrrr", err);
                 dispatch(changeLoading(false));
-                alert("no flight on this date!")
+                alert(err)
             })
             return resp;
         }

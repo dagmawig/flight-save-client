@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from './store'
 
 interface SearchResult {
     populated: boolean,
@@ -47,10 +46,6 @@ interface UserData {
     resultView: boolean,
     loading: boolean,
     saved: boolean
-}
-
-interface CabinClass {
-
 }
 
 const initialState: UserData = {

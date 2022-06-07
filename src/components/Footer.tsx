@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Toolbar, Button } from "@mui/material"
+import { Box, Button } from "@mui/material"
 import HomeIcon from '@mui/icons-material/Home';
 import SavedSearchIcon from '@mui/icons-material/SavedSearch';
 import { Link } from "react-router-dom";

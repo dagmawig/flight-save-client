@@ -1,5 +1,5 @@
 import React from "react";
-import { createUserWithEmailAndPassword, signOut, sendEmailVerification, sendPasswordResetEmail, } from 'firebase/auth';
+import { sendPasswordResetEmail, } from 'firebase/auth';
 import { Box, Button, Grid, TextField, Toolbar } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "./FirebaseConfig";
@@ -35,12 +35,12 @@ const Reset = () => {
                 <Button onClick={handleReset} color="primary" variant="contained" sx={{marginTop: "5px"}}>Reset Password</Button>
                 <Box>
                     <Link to="/signup">
-                        <a style={{fontSize: 12}}>New user? Create account here.</a>
+                        <a href="/signup" style={{fontSize: 12}}>New user? Create account here.</a>
                     </Link>
                 </Box>
                 <Box>
                 <Link to="/">
-                        <a style={{fontSize: 12}} id="login_link">Remember password? Sign in here.</a>
+                        <a href="/" style={{fontSize: 12}} id="login_link">Remember password? Sign in here.</a>
                     </Link>
                 </Box>
             </Grid>

@@ -1,8 +1,8 @@
 import React from "react";
-import { createUserWithEmailAndPassword, signOut, sendEmailVerification, signInWithEmailAndPassword, } from 'firebase/auth';
+import { signOut, sendEmailVerification, signInWithEmailAndPassword, } from 'firebase/auth';
 import { Box, Button, Grid, TextField, Toolbar } from "@mui/material";
 import auth from "./FirebaseConfig";
-import { useAppDispatch, useAppSelector } from './hooks'
+import { useAppDispatch } from './hooks'
 import { setUser, changeLoading } from "./flightSlice";
 import { Link } from "react-router-dom";
 
@@ -53,12 +53,12 @@ const Login = () => {
                 <Button  onClick={handleLogin} color="primary" variant="contained" sx={{ marginTop: "5px" }}>Login</Button>
                 <Box >
                     <Link to="/signup">
-                        <a style={{fontSize: 12}}>New user? Create account here.</a>
+                        <a href="/signup" style={{fontSize: 12}}>New user? Create account here.</a>
                     </Link>
                 </Box>
                 <Box>
                     <Link to="/reset">
-                        <a style={{fontSize: 12}}>Forgot password? Reset password here.</a>
+                        <a href="/reset" style={{fontSize: 12}}>Forgot password? Reset password here.</a>
                     </Link>
                 </Box>
             </Grid>

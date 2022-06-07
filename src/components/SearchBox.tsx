@@ -1,9 +1,6 @@
 import React, { FC } from "react";
-import { AppBar, Toolbar, Box, Typography, Button, IconButton, Autocomplete } from "@mui/material"
+import { Toolbar, Box, Button, Autocomplete } from "@mui/material"
 import FormControl from "@mui/material/FormControl"
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Radio from '@mui/material/Radio';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -15,31 +12,19 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import fData from './data.json';
 import cityCode from './city.json';
 import { useAppDispatch, useAppSelector } from './hooks'
 import { setCabin, setStops, setDepCity, setArrCity, setDepDate, changeView, changeLoading, changeResult, changeDepDString } from './flightSlice'
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { json } from "stream/consumers";
+import axios, { AxiosResponse } from 'axios';
 
 interface IProps {
     kind: string
 }
 
-interface searchFilter {
-    type: string,
-    dep: {
-        date_departure: string | null,
-        location_departure: string,
-        location_arrival: string,
-        number_of_stops: string,
-        classType: string
-    }
-}
+
 
 const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
     const dispatch = useAppDispatch();
-    const [valueOne, setValueOne] = React.useState<Date | null>(new Date());
     const [value, setValue] = React.useState<DateRange<Date>>([new Date(), new Date()]);
     const depCity = useAppSelector(state => state.flight.searchInfo.departCity)
     const handleDepCity = (event: React.SyntheticEvent<Element | Event>, value: string | null): void => {
@@ -58,15 +43,8 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
             const dateString = `${localDate.getFullYear()}-${Math.floor((localDate.getMonth() + 1) / 10)}${(localDate.getMonth() + 1) % 10}-${Math.floor(localDate.getDate() / 10)}${localDate.getDate() % 10}`;
             dispatch(changeDepDString(dateString))
         }
-
-
-        // const localDate = (date!==null)? new Date(date) : null
-        // if(localDate===null)  dispatch(setDepDate(localDate))
-        // else {
-        //     const dateString = `${localDate.getFullYear()}-${Math.floor(localDate.getMonth()/10)}${localDate.getMonth()%10}-${Math.floor(localDate.getDate()/10)}${localDate.getDate()%10}`;
-        //     dispatch(setDepDate(dateString))
-        // }
     }
+
     return (
         <Box>
             <Autocomplete
@@ -178,7 +156,6 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
 const SearchBox = () => {
     const dispatch = useAppDispatch();
 
-    const [value, setValue] = React.useState<Date | null>(new Date());
     const cabinClass = useAppSelector((state => state.flight.searchInfo.cabinClass))
     const stops = useAppSelector(state => state.flight.searchInfo.stops)
     const handleClass = (event: SelectChangeEvent) => {
@@ -194,7 +171,7 @@ const SearchBox = () => {
             alert("depart city can't be same as arrival city!");
             return;
         }
-        if (searchInfo.departCity !== "" && searchInfo.arrCity !== "", searchInfo.departDate !== null) {
+        if (searchInfo.departCity !== "" && searchInfo.arrCity !== "" && searchInfo.departDate !== null) {
 
             const data = {
                 searchFilter: {
@@ -243,19 +220,6 @@ const SearchBox = () => {
             <Toolbar sx={{ color: "#3f51b5", fontWeight: "bold", width: "100%", fontSize: "16pt" }}>
                 Search Flight
             </Toolbar>
-            {/* <FormControl sx={{ margin: "5px" }}>
-                <RadioGroup
-                    row
-                    aria-labelledby="radio-buttons-group-label"
-                    defaultValue="One-way"
-                    name="radio-buttons-group"
-                    sx={{ color: "gray" }}
-                    onChange={handleKind}
-                >
-                    <FormControlLabel value="One-way" control={<Radio />} label="One-way" />
-                    <FormControlLabel value="Round-trip" control={<Radio />} label="Round-trip" />
-                </RadioGroup>
-            </FormControl> */}
             <FlightForm kind={'One-way'} />
             <FormControl sx={{ m: 1, minWidth: 120, maxWidth: 200 }} size="small">
                 <InputLabel id="demo-select-small">Cabin</InputLabel>

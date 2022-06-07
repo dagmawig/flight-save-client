@@ -5,7 +5,7 @@ import Header from './components/Header'
 import Home from './components/Home';
 import Loading from './components/Loading';
 import SavedSearchBox from './components/SavedSearch';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './components/Signup';
 import Login from './components/Login';
 import Reset from './components/Reset';
