@@ -1,15 +1,17 @@
 import { Toolbar, Box, Button } from "@mui/material";
 import { useAppDispatch } from "./hooks";
 import { reset, changeLoading } from "./flightSlice";
-
+import { Link, useNavigate } from "react-router-dom";
 export default function Header() {
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const logout = () => {
         dispatch(changeLoading(true));
         localStorage.setItem("flightSave_userID", "");
         dispatch(reset());
+        navigate('/');
         window.location.reload();
     }
 
