@@ -1,7 +1,7 @@
 import { Box,  Card, CardContent, Typography, Chip, Modal } from "@mui/material";
 import React, { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from './hooks'
-import { changeResult, changeView, SavedSearch } from "./flightSlice";
+import { changeDepDString, changeResult, changeView, SavedSearch } from "./flightSlice";
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -75,6 +75,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
                 if (res.data.success) {
                     res.data.data.populated = true;
                     dispatch(changeResult(res.data.data));
+                    dispatch(changeDepDString(savedSearchItem.date_departure))
                     let savedSearchArr = JSON.parse(JSON.stringify(savedArr));
                     savedSearchArr[itemNo].searchResult = res.data.data;
 
