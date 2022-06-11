@@ -26,7 +26,7 @@ export default function Home() {
             let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/loadData/", { ...data }).catch(err => {
                 console.log("errrrr", err);
                 dispatch(changeLoading(false));
-                alert("no flight on this date!")
+                alert(err)
             })
             return resp;
         }

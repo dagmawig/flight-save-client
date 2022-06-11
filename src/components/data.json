@@ -1,549 +1,1341 @@
 {
-    "airline": [
-        "American Airlines",
-        "American Airlines",
-        "Delta Air Lines",
-        "JetBlue Airways",
-        "Delta Air Lines",
-        "American Airlines",
-        "American Airlines",
-        "Delta Air Lines",
-        "JetBlue Airways",
-        "JetBlue Airways",
-        "JetBlue Airways",
-        "United Airlines",
-        "Delta Air Lines",
-        "American Airlines",
-        "JetBlue Airways",
-        "Delta Air Lines",
-        "United Airlines",
-        "United Airlines",
-        "United Airlines",
-        "United Airlines",
-        "United Airlines"
-    ],
-    "totPrice": [
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        232.6,
-        298.6,
-        338.61,
-        598.6,
-        1248.6,
-        1248.6
-    ],
-    "flightInfo": {
-        "sliceIDArr": [
-            1794140159,
-            1063460412,
-            1221873257,
-            1837190584,
-            548472202,
-            1283395901,
-            724452631,
-            644708406,
-            1837062957,
-            1837213741,
-            1837187949,
-            482952477,
-            1251521567,
-            1713455673,
-            1836978234,
-            1641316573,
-            1874080681,
-            414513046,
-            232703439,
-            406667903,
-            1945453824
+        "airline": [
+            "Delta Air Lines",
+            "Delta Air Lines",
+            "Delta Air Lines",
+            "Delta Air Lines",
+            "Spirit Airlines",
+            "Spirit Airlines",
+            "JetBlue Airways",
+            "JetBlue Airways",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "JetBlue Airways",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "Delta Air Lines",
+            "Delta Air Lines",
+            "American Airlines",
+            "JetBlue Airways",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "Delta Air Lines",
+            "American Airlines",
+            "JetBlue Airways",
+            "Delta Air Lines",
+            "Delta Air Lines",
+            "American Airlines",
+            "American Airlines",
+            "American Airlines",
+            "Delta Air Lines",
+            "Delta Air Lines"
         ],
-        "segmentIDArr": [
-            [
-                291679508
+        "totPrice": [
+            178.6,
+            178.6,
+            178.6,
+            181.6,
+            181.61,
+            181.61,
+            183.6,
+            183.6,
+            183.6,
+            183.6,
+            183.6,
+            183.6,
+            191.1,
+            192.6,
+            192.6,
+            192.6,
+            192.6,
+            192.6,
+            202.6,
+            215.6,
+            215.6,
+            215.6,
+            223.1,
+            223.1,
+            224.6,
+            224.6,
+            224.6,
+            224.6,
+            224.6,
+            241.6,
+            253.6,
+            274.6,
+            274.6,
+            278.6,
+            278.6,
+            282.1,
+            306.1,
+            306.1,
+            307.6,
+            307.6
+        ],
+        "flightInfo": {
+            "sliceIDArr": [
+                342088192,
+                235076659,
+                1713028605,
+                2072363001,
+                1417301599,
+                1754457747,
+                804202240,
+                804226203,
+                1236765104,
+                1460222735,
+                1659460980,
+                803992525,
+                1036907266,
+                379652116,
+                590783281,
+                1325300592,
+                396434195,
+                1009113772,
+                1464029819,
+                1887333503,
+                1585562308,
+                804054948,
+                297063526,
+                1698606439,
+                283026610,
+                869120694,
+                1929310462,
+                1292070653,
+                38004769,
+                162005501,
+                774869193,
+                695900625,
+                803992561,
+                1874256832,
+                1142347398,
+                1413385267,
+                1502411912,
+                600534619,
+                1342308806,
+                426830918
             ],
-            [
-                1111319089
+            "segmentIDArr": [
+                [
+                    1295798992
+                ],
+                [
+                    56741405
+                ],
+                [
+                    470548141
+                ],
+                [
+                    1246135257,
+                    90664193
+                ],
+                [
+                    1549696562,
+                    1820105553
+                ],
+                [
+                    1549696562,
+                    1187598879
+                ],
+                [
+                    432220212
+                ],
+                [
+                    1833631353
+                ],
+                [
+                    421272727
+                ],
+                [
+                    718765364
+                ],
+                [
+                    890133387
+                ],
+                [
+                    556579862
+                ],
+                [
+                    964226723,
+                    436458160
+                ],
+                [
+                    33048574,
+                    719343497
+                ],
+                [
+                    1439007940,
+                    22265679
+                ],
+                [
+                    33048574,
+                    1899598793
+                ],
+                [
+                    1439007940,
+                    1812773523
+                ],
+                [
+                    477598768,
+                    6049927
+                ],
+                [
+                    315536729
+                ],
+                [
+                    2108291340
+                ],
+                [
+                    1789522618
+                ],
+                [
+                    1283506893
+                ],
+                [
+                    964226723,
+                    1656299968
+                ],
+                [
+                    1325142315,
+                    1048925461
+                ],
+                [
+                    477598768,
+                    1899598793
+                ],
+                [
+                    1016466764,
+                    1720159625
+                ],
+                [
+                    477598768,
+                    634846615
+                ],
+                [
+                    33048574,
+                    401961630
+                ],
+                [
+                    477598768,
+                    401961630
+                ],
+                [
+                    477598768,
+                    1408281526
+                ],
+                [
+                    1246135257,
+                    1805987893
+                ],
+                [
+                    43214063
+                ],
+                [
+                    2064131671
+                ],
+                [
+                    1342624861,
+                    1946301266
+                ],
+                [
+                    674565432,
+                    1805105389
+                ],
+                [
+                    1244567535,
+                    1440409509
+                ],
+                [
+                    193045358,
+                    711232257
+                ],
+                [
+                    1244567535,
+                    562084899
+                ],
+                [
+                    1342624861,
+                    918789618
+                ],
+                [
+                    908638269,
+                    1059008642
+                ]
             ],
-            [
-                1089727094
+            "totDurationArr": [
+                148,
+                149,
+                147,
+                302,
+                410,
+                525,
+                147,
+                146,
+                146,
+                149,
+                147,
+                149,
+                354,
+                358,
+                236,
+                298,
+                352,
+                315,
+                151,
+                145,
+                149,
+                149,
+                288,
+                286,
+                373,
+                262,
+                254,
+                269,
+                344,
+                251,
+                364,
+                153,
+                153,
+                274,
+                275,
+                314,
+                295,
+                278,
+                295,
+                336
             ],
-            [
-                758090786
+            "overnightArr": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
             ],
-            [
-                1569084459
+            "cabinNameArr": [
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Basic Economy",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class",
+                "Economy Class"
             ],
-            [
-                2140517938
+            "flightTimeArr": [
+                [
+                    "2022-06-30T08:39:00",
+                    "2022-06-30T12:07:00"
+                ],
+                [
+                    "2022-06-30T06:00:00",
+                    "2022-06-30T09:29:00"
+                ],
+                [
+                    "2022-06-30T16:01:00",
+                    "2022-06-30T19:28:00"
+                ],
+                [
+                    "2022-06-30T05:45:00",
+                    "2022-06-30T08:14:00",
+                    "2022-06-30T09:30:00",
+                    "2022-06-30T11:47:00"
+                ],
+                [
+                    "2022-06-30T12:50:00",
+                    "2022-06-30T16:12:00",
+                    "2022-06-30T17:50:00",
+                    "2022-06-30T20:40:00"
+                ],
+                [
+                    "2022-06-30T12:50:00",
+                    "2022-06-30T16:12:00",
+                    "2022-06-30T19:45:00",
+                    "2022-06-30T22:35:00"
+                ],
+                [
+                    "2022-06-30T07:18:00",
+                    "2022-06-30T10:45:00"
+                ],
+                [
+                    "2022-06-30T13:40:00",
+                    "2022-06-30T17:06:00"
+                ],
+                [
+                    "2022-06-30T13:40:00",
+                    "2022-06-30T17:06:00"
+                ],
+                [
+                    "2022-06-30T05:46:00",
+                    "2022-06-30T09:15:00"
+                ],
+                [
+                    "2022-06-30T07:18:00",
+                    "2022-06-30T10:45:00"
+                ],
+                [
+                    "2022-06-30T05:46:00",
+                    "2022-06-30T09:15:00"
+                ],
+                [
+                    "2022-06-30T05:06:00",
+                    "2022-06-30T07:58:00",
+                    "2022-06-30T10:18:00",
+                    "2022-06-30T12:00:00"
+                ],
+                [
+                    "2022-06-30T07:35:00",
+                    "2022-06-30T09:00:00",
+                    "2022-06-30T11:30:00",
+                    "2022-06-30T14:33:00"
+                ],
+                [
+                    "2022-06-30T06:16:00",
+                    "2022-06-30T09:20:00",
+                    "2022-06-30T10:00:00",
+                    "2022-06-30T11:12:00"
+                ],
+                [
+                    "2022-06-30T07:35:00",
+                    "2022-06-30T09:00:00",
+                    "2022-06-30T10:30:00",
+                    "2022-06-30T13:33:00"
+                ],
+                [
+                    "2022-06-30T06:16:00",
+                    "2022-06-30T09:20:00",
+                    "2022-06-30T12:00:00",
+                    "2022-06-30T13:08:00"
+                ],
+                [
+                    "2022-06-30T06:20:00",
+                    "2022-06-30T07:43:00",
+                    "2022-06-30T09:30:00",
+                    "2022-06-30T12:35:00"
+                ],
+                [
+                    "2022-06-30T12:45:00",
+                    "2022-06-30T16:16:00"
+                ],
+                [
+                    "2022-06-30T18:34:00",
+                    "2022-06-30T21:59:00"
+                ],
+                [
+                    "2022-06-30T09:30:00",
+                    "2022-06-30T12:59:00"
+                ],
+                [
+                    "2022-06-30T09:30:00",
+                    "2022-06-30T12:59:00"
+                ],
+                [
+                    "2022-06-30T05:06:00",
+                    "2022-06-30T07:58:00",
+                    "2022-06-30T09:10:00",
+                    "2022-06-30T10:54:00"
+                ],
+                [
+                    "2022-06-30T19:03:00",
+                    "2022-06-30T21:55:00",
+                    "2022-06-30T22:54:00",
+                    "2022-07-01T00:49:00"
+                ],
+                [
+                    "2022-06-30T06:20:00",
+                    "2022-06-30T07:43:00",
+                    "2022-06-30T10:30:00",
+                    "2022-06-30T13:33:00"
+                ],
+                [
+                    "2022-06-30T09:55:00",
+                    "2022-06-30T12:57:00",
+                    "2022-06-30T14:00:00",
+                    "2022-06-30T15:17:00"
+                ],
+                [
+                    "2022-06-30T06:20:00",
+                    "2022-06-30T07:43:00",
+                    "2022-06-30T08:30:00",
+                    "2022-06-30T11:34:00"
+                ],
+                [
+                    "2022-06-30T07:35:00",
+                    "2022-06-30T09:00:00",
+                    "2022-06-30T10:00:00",
+                    "2022-06-30T13:04:00"
+                ],
+                [
+                    "2022-06-30T06:20:00",
+                    "2022-06-30T07:43:00",
+                    "2022-06-30T10:00:00",
+                    "2022-06-30T13:04:00"
+                ],
+                [
+                    "2022-06-30T06:20:00",
+                    "2022-06-30T07:43:00",
+                    "2022-06-30T08:30:00",
+                    "2022-06-30T11:31:00"
+                ],
+                [
+                    "2022-06-30T05:45:00",
+                    "2022-06-30T08:14:00",
+                    "2022-06-30T10:30:00",
+                    "2022-06-30T12:49:00"
+                ],
+                [
+                    "2022-06-30T18:27:00",
+                    "2022-06-30T22:00:00"
+                ],
+                [
+                    "2022-06-30T18:27:00",
+                    "2022-06-30T22:00:00"
+                ],
+                [
+                    "2022-06-30T13:10:00",
+                    "2022-06-30T15:43:00",
+                    "2022-06-30T16:25:00",
+                    "2022-06-30T18:44:00"
+                ],
+                [
+                    "2022-06-30T06:30:00",
+                    "2022-06-30T09:01:00",
+                    "2022-06-30T10:24:00",
+                    "2022-06-30T12:05:00"
+                ],
+                [
+                    "2022-06-30T07:16:00",
+                    "2022-06-30T10:09:00",
+                    "2022-06-30T11:42:00",
+                    "2022-06-30T13:30:00"
+                ],
+                [
+                    "2022-06-30T09:33:00",
+                    "2022-06-30T12:21:00",
+                    "2022-06-30T13:47:00",
+                    "2022-06-30T15:28:00"
+                ],
+                [
+                    "2022-06-30T07:16:00",
+                    "2022-06-30T10:09:00",
+                    "2022-06-30T11:10:00",
+                    "2022-06-30T12:54:00"
+                ],
+                [
+                    "2022-06-30T13:10:00",
+                    "2022-06-30T15:43:00",
+                    "2022-06-30T16:40:00",
+                    "2022-06-30T19:05:00"
+                ],
+                [
+                    "2022-06-30T07:10:00",
+                    "2022-06-30T09:40:00",
+                    "2022-06-30T11:30:00",
+                    "2022-06-30T13:46:00"
+                ]
             ],
-            [
-                1451935140
+            "airArr": [
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Hartsfield-Jackson Atlanta Intl Airport"
+                    ],
+                    [
+                        "Hartsfield-Jackson Atlanta Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Orlando Intl Airport"
+                    ],
+                    [
+                        "Orlando Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Orlando Intl Airport"
+                    ],
+                    [
+                        "Orlando Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Charlotte Douglas Intl Airport"
+                    ],
+                    [
+                        "Charlotte Douglas Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "O'Hare Intl Airport"
+                    ],
+                    [
+                        "O'Hare Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Ronald Reagan National Airport"
+                    ],
+                    [
+                        "Ronald Reagan National Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "O'Hare Intl Airport"
+                    ],
+                    [
+                        "O'Hare Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Ronald Reagan National Airport"
+                    ],
+                    [
+                        "Ronald Reagan National Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "O'Hare Intl Airport"
+                    ],
+                    [
+                        "O'Hare Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Charlotte Douglas Intl Airport"
+                    ],
+                    [
+                        "Charlotte Douglas Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Charlotte Douglas Intl Airport"
+                    ],
+                    [
+                        "Charlotte Douglas Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "O'Hare Intl Airport"
+                    ],
+                    [
+                        "O'Hare Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Ronald Reagan National Airport"
+                    ],
+                    [
+                        "Ronald Reagan National Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "O'Hare Intl Airport"
+                    ],
+                    [
+                        "O'Hare Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "O'Hare Intl Airport"
+                    ],
+                    [
+                        "O'Hare Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "O'Hare Intl Airport"
+                    ],
+                    [
+                        "O'Hare Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "O'Hare Intl Airport"
+                    ],
+                    [
+                        "O'Hare Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Hartsfield-Jackson Atlanta Intl Airport"
+                    ],
+                    [
+                        "Hartsfield-Jackson Atlanta Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Hartsfield-Jackson Atlanta Intl Airport"
+                    ],
+                    [
+                        "Hartsfield-Jackson Atlanta Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Metropolitan Wayne County Airport"
+                    ],
+                    [
+                        "Metropolitan Wayne County Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Charlotte Douglas Intl Airport"
+                    ],
+                    [
+                        "Charlotte Douglas Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Charlotte Douglas Intl Airport"
+                    ],
+                    [
+                        "Charlotte Douglas Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Charlotte Douglas Intl Airport"
+                    ],
+                    [
+                        "Charlotte Douglas Intl Airport",
+                        "Newark Liberty Intl Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Hartsfield-Jackson Atlanta Intl Airport"
+                    ],
+                    [
+                        "Hartsfield-Jackson Atlanta Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ],
+                [
+                    [
+                        "Lambert Intl Airport",
+                        "Hartsfield-Jackson Atlanta Intl Airport"
+                    ],
+                    [
+                        "Hartsfield-Jackson Atlanta Intl Airport",
+                        "LaGuardia Airport"
+                    ]
+                ]
             ],
-            [
-                1966182615
-            ],
-            [
-                1439944612
-            ],
-            [
-                1617860557
-            ],
-            [
-                1465205901
-            ],
-            [
-                795875352
-            ],
-            [
-                669339584
-            ],
-            [
-                1773482550
-            ],
-            [
-                1589565551
-            ],
-            [
-                1065900356
-            ],
-            [
-                439583287
-            ],
-            [
-                1229267105
-            ],
-            [
-                1295656653
-            ],
-            [
-                1743497687
-            ],
-            [
-                1257014232
+            "airCodeArr": [
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ATL"
+                    ],
+                    [
+                        "ATL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "MCO"
+                    ],
+                    [
+                        "MCO",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "MCO"
+                    ],
+                    [
+                        "MCO",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "CLT"
+                    ],
+                    [
+                        "CLT",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ORD"
+                    ],
+                    [
+                        "ORD",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "DCA"
+                    ],
+                    [
+                        "DCA",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ORD"
+                    ],
+                    [
+                        "ORD",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "DCA"
+                    ],
+                    [
+                        "DCA",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ORD"
+                    ],
+                    [
+                        "ORD",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "CLT"
+                    ],
+                    [
+                        "CLT",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "CLT"
+                    ],
+                    [
+                        "CLT",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ORD"
+                    ],
+                    [
+                        "ORD",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "DCA"
+                    ],
+                    [
+                        "DCA",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ORD"
+                    ],
+                    [
+                        "ORD",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ORD"
+                    ],
+                    [
+                        "ORD",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ORD"
+                    ],
+                    [
+                        "ORD",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ORD"
+                    ],
+                    [
+                        "ORD",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ATL"
+                    ],
+                    [
+                        "ATL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ATL"
+                    ],
+                    [
+                        "ATL",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "DTW"
+                    ],
+                    [
+                        "DTW",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "CLT"
+                    ],
+                    [
+                        "CLT",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "CLT"
+                    ],
+                    [
+                        "CLT",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "CLT"
+                    ],
+                    [
+                        "CLT",
+                        "EWR"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ATL"
+                    ],
+                    [
+                        "ATL",
+                        "LGA"
+                    ]
+                ],
+                [
+                    [
+                        "STL",
+                        "ATL"
+                    ],
+                    [
+                        "ATL",
+                        "LGA"
+                    ]
+                ]
             ]
-        ],
-        "totDurationArr": [
-            135,
-            148,
-            146,
-            144,
-            142,
-            135,
-            144,
-            146,
-            135,
-            143,
-            135,
-            149,
-            147,
-            143,
-            148,
-            140,
-            149,
-            149,
-            149,
-            149,
-            148
-        ],
-        "overnightArr": [
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false
-        ],
-        "cabinNameArr": [
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class",
-            "Economy Class"
-        ],
-        "flightTimeArr": [
-            [
-                "2022-04-28T10:02:00",
-                "2022-04-28T13:17:00"
-            ],
-            [
-                "2022-04-28T15:32:00",
-                "2022-04-28T19:00:00"
-            ],
-            [
-                "2022-04-28T06:05:00",
-                "2022-04-28T09:31:00"
-            ],
-            [
-                "2022-04-28T07:10:00",
-                "2022-04-28T10:34:00"
-            ],
-            [
-                "2022-04-28T12:14:00",
-                "2022-04-28T15:36:00"
-            ],
-            [
-                "2022-04-28T13:45:00",
-                "2022-04-28T17:00:00"
-            ],
-            [
-                "2022-04-28T07:10:00",
-                "2022-04-28T10:34:00"
-            ],
-            [
-                "2022-04-28T08:41:00",
-                "2022-04-28T12:07:00"
-            ],
-            [
-                "2022-04-28T10:02:00",
-                "2022-04-28T13:17:00"
-            ],
-            [
-                "2022-04-28T19:37:00",
-                "2022-04-28T23:00:00"
-            ],
-            [
-                "2022-04-28T13:45:00",
-                "2022-04-28T17:00:00"
-            ],
-            [
-                "2022-04-28T08:05:00",
-                "2022-04-28T11:34:00"
-            ],
-            [
-                "2022-04-28T18:00:00",
-                "2022-04-28T21:27:00"
-            ],
-            [
-                "2022-04-28T19:37:00",
-                "2022-04-28T23:00:00"
-            ],
-            [
-                "2022-04-28T15:32:00",
-                "2022-04-28T19:00:00"
-            ],
-            [
-                "2022-04-28T14:49:00",
-                "2022-04-28T18:09:00"
-            ],
-            [
-                "2022-04-28T06:20:00",
-                "2022-04-28T09:49:00"
-            ],
-            [
-                "2022-04-28T18:30:00",
-                "2022-04-28T21:59:00"
-            ],
-            [
-                "2022-04-28T10:00:00",
-                "2022-04-28T13:29:00"
-            ],
-            [
-                "2022-04-28T13:01:00",
-                "2022-04-28T16:30:00"
-            ],
-            [
-                "2022-04-28T17:31:00",
-                "2022-04-28T20:59:00"
-            ]
-        ],
-        "airArr": [
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "Newark Liberty Intl Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "LaGuardia Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "Newark Liberty Intl Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "Newark Liberty Intl Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "Newark Liberty Intl Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "Newark Liberty Intl Airport"
-                ]
-            ],
-            [
-                [
-                    "Lambert Intl Airport",
-                    "Newark Liberty Intl Airport"
-                ]
-            ]
-        ],
-        "airCodeArr": [
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "EWR"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "LGA"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "EWR"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "EWR"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "EWR"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "EWR"
-                ]
-            ],
-            [
-                [
-                    "STL",
-                    "EWR"
-                ]
-            ]
+        },
+        "airlineLogo": [
+            "airLogo_DL.png",
+            "airLogo_DL.png",
+            "airLogo_DL.png",
+            "airLogo_DL.png",
+            "airLogo_NK.png",
+            "airLogo_NK.png",
+            "airLogo_B6.png",
+            "airLogo_B6.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_B6.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_DL.png",
+            "airLogo_DL.png",
+            "airLogo_AA.png",
+            "airLogo_B6.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_DL.png",
+            "airLogo_AA.png",
+            "airLogo_B6.png",
+            "airLogo_DL.png",
+            "airLogo_DL.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_AA.png",
+            "airLogo_DL.png",
+            "airLogo_DL.png"
         ]
-    }
 }

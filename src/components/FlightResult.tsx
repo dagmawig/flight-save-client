@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import fData from './data.json'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useAppDispatch, useAppSelector } from './hooks'
-import { changeView, changeAlertPrice, changeFlightName, changeLoading, changeSavedSearch, changeSaved} from "./flightSlice";
+import { changeView, changeAlertPrice, changeFlightName, changeLoading, changeSavedSearch, changeSaved } from "./flightSlice";
 import SaveIcon from '@mui/icons-material/Save';
 import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
@@ -30,7 +30,8 @@ interface IProps {
             flightTime: string[],
             air: string[][],
             airCode: string[][]
-        }
+        },
+        airlineLogo: string,
     }
 }
 
@@ -72,6 +73,10 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
             minutes: time.getMinutes(),
             meridiem: (hour >= 12) ? 'p' : 'a'
         }
+    }
+
+    const getDefImage = (e: React.SyntheticEvent<HTMLImageElement, Event>): void => {
+        e.currentTarget.src = process.env.PUBLIC_URL + '/image/airline.jpg'
     }
 
     const layover = () => {
@@ -135,6 +140,8 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
         return `${hString}:${mString}${time.meridiem}`
     }
 
+
+
     return (
         <Card elevation={5} sx={{ width: "99%", margin: "auto", mx: "3px", my: "5px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", backgroundColor: (data.itemNo % 2 === 0) ? "#e0e0e0" : '' }}>
@@ -147,7 +154,7 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
                     </Typography>
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <CardMedia component="img" image={process.env.PUBLIC_URL + '/image/airline.jpg'} sx={{ height: 40, maxWidth: 50, objectFit: "contain", border: 1, borderColor: "grey.500" }} />
+                    <CardMedia  component="img" title={data.airline} image={'https://s1.pclncdn.com/design-assets/fly/carrier-logos/' + data.airlineLogo} sx={{ height: 40, maxWidth: 50, objectFit: "contain", border: 1, borderColor: "grey.500" }} />
                     <Box sx={{ display: "flex", width: "240px", justifyContent: "space-between", alignItems: "center", backgroundColor: "#03a9f4", padding: "5px", borderRadius: "5px" }}>
                         {/* <Box sx={{ height: "1px", backgroundColor: "#212121", position: "absolute", width: "240px", zIndex: 0 }}></Box> */}
                         <Box sx={{ width: "40px", backgroundColor: "#03a9f4", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -166,7 +173,7 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
                                 {arrTime()}
                             </Typography>
                             <Typography sx={{ fontSize: 10, display: "flex" }} color="text.secondary" gutterBottom>
-                            <ArrowForwardIosIcon fontSize="small" /> {data.flightInfo.airCode[data.flightInfo.airCode.length - 1][1]}
+                                <ArrowForwardIosIcon fontSize="small" /> {data.flightInfo.airCode[data.flightInfo.airCode.length - 1][1]}
                             </Typography>
                         </Box>
                     </Box>
@@ -195,12 +202,12 @@ const SearchResultBox = () => {
     }
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
-    const saved = useAppSelector(state=>state.flight.saved);
-    const savedSearch = useAppSelector(state=>state.flight.savedSearch);
+    const saved = useAppSelector(state => state.flight.saved);
+    const savedSearch = useAppSelector(state => state.flight.savedSearch);
     const userID = localStorage.getItem("flightSave_userID");
     const handleOpen = () => {
-        if(checkExist().length !== 0) {
-            alert(`Flight search already exists under name '${checkExist()[0].name}'`); 
+        if (checkExist().length !== 0) {
+            alert(`Flight search already exists under name '${checkExist()[0].name}'`);
             return;
         }
         return setOpen(true);
@@ -208,7 +215,7 @@ const SearchResultBox = () => {
     const handleClose = () => setOpen(false);
     const searchInfo = useAppSelector(state => state.flight.searchInfo)
     const checkExist = () => {
-        const result = savedSearch.filter(search=> {
+        const result = savedSearch.filter(search => {
             return (
                 searchInfo.departCity === search.location_departure &&
                 searchInfo.arrCity === search.location_arrival &&
@@ -218,12 +225,12 @@ const SearchResultBox = () => {
             )
         });
 
-        return result;        
+        return result;
     }
     const handleSave = () => {
         if (flightName === '') { alert("enter flight name"); return; }
         if (alertPrice === null || alertPrice >= `${Math.ceil(result.totPrice[0])}`) { alert('please enter valid alert price'); return }
-        
+
         const saveObj = {
             userID: userID,
             searchData: {
@@ -247,10 +254,10 @@ const SearchResultBox = () => {
             return resp;
         }
 
-        saveFlight().then(res=>{
-            if(res) {
+        saveFlight().then(res => {
+            if (res) {
                 console.log("save data", res.data);
-                if(res.data.success) {
+                if (res.data.success) {
                     dispatch(changeLoading(false));
                     dispatch(changeSavedSearch(res.data.data.user.searchData));
                     dispatch(changeFlightName(''));
@@ -301,7 +308,8 @@ const SearchResultBox = () => {
                         flightTime: result.flightInfo.flightTimeArr[ind],
                         air: result.flightInfo.airArr[ind],
                         airCode: result.flightInfo.airCodeArr[ind]
-                    }
+                    },
+                    airlineLogo: result.airlineLogo[ind]
                 }
             } />
         )
@@ -311,7 +319,7 @@ const SearchResultBox = () => {
         <Box sx={{ width: "100%", my: 0, mx: "auto", padding: 0, margin: 0, height: "100%", overflowY: "hidden", display: "flex", flexDirection: "column" }}>
             <Box sx={{ position: "fixed", top: "50px", bottom: 0, left: 0, right: 0, zIndex: 5, width: "99%", height: "30px", display: "flex", justifyContent: 'space-between', alignItems: "center", padding: "5px", margin: 0, backgroundColor: "rgba(255, 255, 255, 1)" }} >
                 <Button variant="contained" color="primary" onClick={handleBack}><ArrowBackIcon /></Button>
-                <Box sx={{ color: '#1565c0' }}><b>Date: {useAppSelector(state=>state.flight.searchInfo.departDString)}</b></Box>
+                <Box sx={{ color: '#1565c0' }}><b>Date: {useAppSelector(state => state.flight.searchInfo.departDString)}</b></Box>
                 <Button disabled={saved} variant="contained" color="success" sx={{ mr: "5px" }} onClick={handleOpen} >Save Search</Button>
             </Box>
             <Box sx={{ maxHeight: "calc(100vh-110px)", overflowY: "auto", marginTop: "30px" }}>

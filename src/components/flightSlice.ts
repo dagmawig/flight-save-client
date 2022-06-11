@@ -12,8 +12,9 @@ interface SearchResult {
         cabinNameArr: string[],
         flightTimeArr: string[][],
         airArr: string[][][],
-        airCodeArr: string[][][]
-    }
+        airCodeArr: string[][][],
+    },
+    airlineLogo: string[],
 }
 
 export interface SavedSearch {
@@ -75,7 +76,8 @@ const initialState: UserData = {
             flightTimeArr: [],
             airArr: [],
             airCodeArr: [],
-        }
+        },
+        airlineLogo: [],
     },
     savedSearch: [],
     resultView: false,
