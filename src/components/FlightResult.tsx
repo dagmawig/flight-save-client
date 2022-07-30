@@ -40,6 +40,8 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
     const [anchorEl1, setAnchorEl1] = React.useState<HTMLButtonElement | null>(null);
     const [anchorEl2, setAnchorEl2] = React.useState<HTMLButtonElement | null>(null);
+    const [anchorEl3, setAnchorEl3] = React.useState<HTMLButtonElement | null>(null);
+    const [anchorEl4, setAnchorEl4] = React.useState<HTMLButtonElement | null>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -63,6 +65,22 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
 
     const handleClose2 = () => {
         setAnchorEl2(null);
+    };
+
+    const handleClick3 = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl3(event.currentTarget);
+    };
+
+    const handleClose3 = () => {
+        setAnchorEl3(null);
+    };
+
+    const handleClick4 = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl4(event.currentTarget);
+    };
+
+    const handleClose4 = () => {
+        setAnchorEl4(null);
     };
 
     const getTime = (dateString: string) => {
@@ -119,9 +137,14 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
     const open = Boolean(anchorEl);
     const open1 = Boolean(anchorEl1);
     const open2 = Boolean(anchorEl2);
+    const open3 = Boolean(anchorEl3);
+    const open4 = Boolean(anchorEl4);
     const id = open ? 'simple-popover' : undefined;
     const id1 = open1 ? 'simple-popover' : undefined;
     const id2 = open2 ? 'simple-popover' : undefined;
+    const id3 = open1 ? 'simple-popover' : undefined;
+    const id4 = open2 ? 'simple-popover' : undefined;
+
     const totTime = `${(Math.floor(data.flightInfo.totDuration / 60) > 0) ? Math.floor(data.flightInfo.totDuration / 60).toString() + 'h ' : ''}${(Math.floor(data.flightInfo.totDuration % 60) > 0) ? Math.floor(data.flightInfo.totDuration % 60).toString() + 'm' : ''}`;
 
     const depTime = () => {
@@ -154,15 +177,33 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
                     </Typography>
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <CardMedia  component="img" title={data.airline} image={'https://s1.pclncdn.com/design-assets/fly/carrier-logos/' + data.airlineLogo} sx={{ height: 40, maxWidth: 50, objectFit: "contain", border: 1, borderColor: "grey.500" }} />
+                    <CardMedia component="img" title={data.airline} image={'https://s1.pclncdn.com/design-assets/fly/carrier-logos/' + data.airlineLogo} sx={{ height: 40, maxWidth: 50, objectFit: "contain", border: 1, borderColor: "grey.500" }} />
                     <Box sx={{ display: "flex", width: "240px", justifyContent: "space-between", alignItems: "center", backgroundColor: "#03a9f4", padding: "5px", borderRadius: "5px" }}>
-                        {/* <Box sx={{ height: "1px", backgroundColor: "#212121", position: "absolute", width: "240px", zIndex: 0 }}></Box> */}
                         <Box sx={{ width: "40px", backgroundColor: "#03a9f4", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center" }}>
                             <Typography sx={{ fontSize: 14, fontWeight: "bold", marginBottom: 0 }} color="text.primary" gutterBottom>
                                 {depTime()}
                             </Typography>
                             <Typography sx={{ fontSize: 10, display: "flex" }} color="text.secondary" gutterBottom>
-                                {data.flightInfo.airCode[0][0]} <ArrowForwardIosIcon fontSize="small" />
+                                <div>
+                                    <Button size="small" sx={{ color: "black", backgroundColor: "#b3e5fc", testTransform: "none", minHeight: 0, minWidth: 0, padding: .25 }} aria-describedby={id3} variant="contained" onClick={handleClick3}>
+                                        {data.flightInfo.airCode[0][0]}
+                                    </Button>
+                                    <Popover
+                                        disableScrollLock={true}
+                                        id={id3}
+                                        open={open3}
+                                        anchorEl={anchorEl3}
+                                        onClose={handleClose3}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                        }}
+                                    >
+                                        <Typography sx={{ p: 1, fontSize: 12 }}>{data.flightInfo.air[0][0]}</Typography>
+                                    </Popover>
+                                </div>
+
+                                <ArrowForwardIosIcon fontSize="small" />
                             </Typography>
                         </Box>
 
@@ -173,7 +214,25 @@ export const SearchResultItem: FC<IProps> = ({ data }: IProps) => {
                                 {arrTime()}
                             </Typography>
                             <Typography sx={{ fontSize: 10, display: "flex" }} color="text.secondary" gutterBottom>
-                                <ArrowForwardIosIcon fontSize="small" /> {data.flightInfo.airCode[data.flightInfo.airCode.length - 1][1]}
+                                <ArrowForwardIosIcon fontSize="small" />
+                                <div>
+                                    <Button size="small" sx={{ color: "black", backgroundColor: "#b3e5fc", testTransform: "none", minHeight: 0, minWidth: 0, padding: .25 }} aria-describedby={id4} variant="contained" onClick={handleClick4}>
+                                        {data.flightInfo.airCode[data.flightInfo.airCode.length - 1][1]}
+                                    </Button>
+                                    <Popover
+                                        disableScrollLock={true}
+                                        id={id4}
+                                        open={open4}
+                                        anchorEl={anchorEl4}
+                                        onClose={handleClose4}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                        }}
+                                    >
+                                        <Typography sx={{ p: 1, fontSize: 12 }}>{data.flightInfo.air[data.flightInfo.air.length - 1][1]}</Typography>
+                                    </Popover>
+                                </div>
                             </Typography>
                         </Box>
                     </Box>
