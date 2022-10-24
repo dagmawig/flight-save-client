@@ -305,7 +305,7 @@ const SearchResultBox = () => {
         }
 
         const saveFlight = async (): Promise<void | AxiosResponse<any, any>> => {
-            let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/saveSearch/", saveObj).catch(err => {
+            let resp = await axios.post<any>("https://flight-save.glitch.me/saveSearch/", saveObj).catch(err => {
                 console.log("errrrr", err);
                 dispatch(changeLoading(false));
                 alert(err)

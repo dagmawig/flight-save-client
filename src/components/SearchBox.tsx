@@ -184,7 +184,7 @@ const SearchBox = () => {
             }
 
             const searchFlight = async (): Promise<void | AxiosResponse<any, any>> => {
-                let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/search/", { ...data }).catch(err => {
+                let resp = await axios.post<any>("https://flight-save.glitch.me/search/", { ...data }).catch(err => {
                     console.log("errrrr", err);
                     dispatch(changeLoading(false));
                     alert("no flight on this date!")

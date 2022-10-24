@@ -23,7 +23,7 @@ export default function Home() {
                 userID: userID,
             }
 
-            let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/loadData/", { ...data }).catch(err => {
+            let resp = await axios.post<any>("https://flight-save.glitch.me/loadData/", { ...data }).catch(err => {
                 console.log("errrrr", err);
                 dispatch(changeLoading(false));
                 alert(err)

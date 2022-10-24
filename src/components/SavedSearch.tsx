@@ -61,7 +61,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
         }
 
         const searchFlight = async (): Promise<void | AxiosResponse<any, any>> => {
-            let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/search/", { ...data }).catch(err => {
+            let resp = await axios.post<any>("https://flight-save.glitch.me/search/", { ...data }).catch(err => {
                 console.log("errrrr", err);
                 dispatch(changeLoading(false));
                 alert("no flight on this date!")
@@ -85,7 +85,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
                     }
 
                     const updateSearch = async (): Promise<void | AxiosResponse<any, any>> => {
-                        let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/updateSearch/", data).catch(err => {
+                        let resp = await axios.post<any>("https://flight-save.glitch.me/updateSearch/", data).catch(err => {
                             console.log("errrrr", err);
                             dispatch(changeLoading(false));
                             alert(`error deleting ${err}`);
@@ -136,7 +136,7 @@ const SavedSearchItem: FC<IProps> = ({ data, itemNo }: IProps) => {
         }
 
         const updateSearch = async (): Promise<void | AxiosResponse<any, any>> => {
-            let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/updateSearch/", data).catch(err => {
+            let resp = await axios.post<any>("https://flight-save.glitch.me/updateSearch/", data).catch(err => {
                 console.log("errrrr", err);
                 dispatch(changeLoading(false));
                 alert(`error deleting ${err}`);
@@ -246,7 +246,7 @@ export default function SavedSearchBox() {
                 userID: userID,
             }
 
-            let resp = await axios.post<any>("https://flight-save.herokuapp.com/backend/loadData/", { ...data }).catch(err => {
+            let resp = await axios.post<any>("https://flight-save.glitch.me/loadData/", { ...data }).catch(err => {
                 console.log("errrrr", err);
                 dispatch(changeLoading(false));
                 alert(err)
