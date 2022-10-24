@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/flight-save-client/static/css/main.0f8b14f5.css",
-    "main.js": "/flight-save-client/static/js/main.3e0c75a7.js",
+    "main.js": "/flight-save-client/static/js/main.eb327133.js",
     "index.html": "/flight-save-client/index.html",
     "main.0f8b14f5.css.map": "/flight-save-client/static/css/main.0f8b14f5.css.map",
-    "main.3e0c75a7.js.map": "/flight-save-client/static/js/main.3e0c75a7.js.map"
+    "main.eb327133.js.map": "/flight-save-client/static/js/main.eb327133.js.map"
   },
   "entrypoints": [
     "static/css/main.0f8b14f5.css",
-    "static/js/main.3e0c75a7.js"
+    "static/js/main.eb327133.js"
   ]
 }
