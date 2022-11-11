@@ -26,6 +26,7 @@ interface IProps {
 const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
     const dispatch = useAppDispatch();
     const [value, setValue] = React.useState<DateRange<Date>>([new Date(), new Date()]);
+    const [open, setOpen] = React.useState<boolean | undefined>(false)
     const depCity = useAppSelector(state => state.flight.searchInfo.departCity)
     const handleDepCity = (event: React.SyntheticEvent<Element | Event>, value: string | null): void => {
         if (value !== null) dispatch(setDepCity(value))
@@ -101,6 +102,9 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
 
             {(kind === "One-way") ? <LocalizationProvider dateAdapter={AdapterDateFns} >
                 <DatePicker
+                    open={open}
+                    onOpen={() => setOpen(true)}
+                    onClose={() => setOpen(false)}
                     disablePast
                     label="Departing"
                     value={depDate}
@@ -112,7 +116,11 @@ const FlightForm: FC<IProps> = ({ kind = "One-way" }: IProps) => {
                                     <CalendarTodayIcon />
                                 </InputAdornment>
                             ),
-                        }}
+                            onKeyDown: (event) => {
+                                event.preventDefault();
+                             }
+                        }} 
+                        onClick={(e) => setOpen(true)}
                     />}
                 />
             </LocalizationProvider> :
